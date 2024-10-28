@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  S'enregistrer
+S'inscrire
+{% endblock %}
+{% block titre_barre %}
+S'inscrire
 {% endblock %}
 
 {% block content %}
   <div class="content-register">
     <div>
+      <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="logo-starkids"/>
       <form method="post">
-        <label for="username">Nom d'utilisateur</label>
-        <input name="username" id="username" required>
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" required>
-        <input type="submit" value="S'enregistrer">
+        <label for="email"></label>
+        <input name="email" id="email" placeholder="Email" required>
+        <label for="password"></label>
+        <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+        <label for="nom"></label>
+        <input type="name" id="name" placeholder="Nom" required>
+        <label for="prenom"></label>
+        <input type="first_name" id="first_name" placeholder="Prénom" required>
+        <label for="telephone"></label>
+        <input type="numero_telephone" id="numero_telephone" placeholder="Numéro de téléphone" required>
+        <input type="submit" value="S'inscrire">
       </form>
     
       {% for message in get_flashed_messages() %}

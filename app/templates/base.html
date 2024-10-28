@@ -9,19 +9,28 @@
         <nav id="header-nav">
             <div id="header-nav-logo">
                 <a href="{{url_for('home.landing_page')}}">
-                    <img src="{{url_for('static', filename='imgs/logo-csud.svg')}}" alt="logo-csud"/>
+                    <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="logo-starkids"/>
                 </a>
             </div>
+            <div id="header-nav-forme">
+                <img src="{{url_for('static', filename='imgs/forme-haut-de-page.svg')}}" alt="forme du haute de page" id="header-nav-forme"/>
+            </div>
+            
             <ul id="header-nav-menu">
                 {% if g.user %}
                     <li><span>{{ g.user['username'] }}</span>
-                    <li><a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
-                    <li><a href="{{url_for('user.show_profile')}}">Consulter son profil</a></li>
+                    <li id="camps"><a href="{{ url_for('auth.register') }}">Camps</a>
+                    <li id="informations"><a href="{{ url_for('auth.login') }}">Informations</a>
+                    <li id="a propos"><a href="{{ url_for('auth.login') }}">A propos</a>
+                    <li id="mon compte"><a href="{{ url_for('auth.login') }}">Mon Compte</a>
                 {% else %}
-                    <li><a href="{{ url_for('auth.register') }}">S'enregistrer</a>
-                    <li><a href="{{ url_for('auth.login') }}">Se connecter</a>
+                    <li id="camps"><a href="{{ url_for('auth.register') }}">Camps</a>
+                    <li id="informations"><a href="{{ url_for('auth.login') }}">Informations</a>
+                    <li id="a propos"><a href="{{ url_for('auth.login') }}">A propos</a>
+                    <li id="connexion"><a href="{{ url_for('auth.login') }}">Connexion</a>
                 {% endif %}
             </ul>
+            <div id="header-titre">{% block titre_barre %}{% endblock %}</div>
         </nav>
     </header>
         
@@ -31,14 +40,16 @@
 
     <footer id="footer">
         <div id="footer-nav">
-            <div>
-                <p>Template de base TM</p>
+            <div id="contact">
+                <p>Contact:</p>
             </div>
             <div>
-                <p>Collège du Sud, 1630, Bulle </p>
-            </div>
-            <div>
-                <p>Johan Jobin</p>
+                <div>
+                    <p>Par téléphone au +41 77 415 59 73</p>
+                </div>
+                <div>
+                    <p>Par email à Starkids.contact@gmail.com</p>
+                </div>
             </div>
         </div>
     </footer>

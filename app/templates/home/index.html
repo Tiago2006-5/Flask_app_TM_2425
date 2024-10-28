@@ -1,15 +1,28 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Template de base
+  Starkids
 {% endblock %}
+
 
 {% block content%}
   <div class="content-index">
-    {% if g.user %}
-      <h1>Vous êtes connectés</h1>
-    {% else %}
-      <h1>Bienvenue sur le template de base de votre TM :)</h1>
-    {% endif %}
+    <div id="content-text">
+      <h1>Starkids vous souhaite la bienvenue!</h1>
+      <p>
+          Découvrez nos camps de foot pour enfants, où le sport se mêle à l'amusement et à l'apprentissage.
+          Nos entraîneurs passionnés aident chaque jeune à développer ses compétences techniques et son
+          esprit d'équipe. Les enfants profitent d'activités ludiques et font de nouvelles rencontres dans
+          un cadre bienveillant. Rejoignez-nous pour une aventure footballistique inoubliable!
+      </p>
   </div>
+  <div id="image-joueur">
+    <img src="{{url_for('static', filename='imgs/image-joueur.svg')}}" alt="Enfant jouant au football">
+  </div>
+  <div>
+    <img id="forme-joueur" src="{{url_for('static', filename='imgs/forme-joueur.svg')}}" alt="cercle">
+  </div>
+</div>
+
+  
 {% endblock %}
