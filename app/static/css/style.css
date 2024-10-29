@@ -21,6 +21,7 @@
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     background-color: #D9D9D9;
+    overflow-x: hidden;
   }
   
   /* 5. Improve media defaults */
@@ -124,20 +125,28 @@ header{
     font-size: 25px;
 }
 
-#forme-joueur{
-  position: absolute;
-  z-index: 5;
-  top: 35%;
-  right: 0;
-}
-
 #image-joueur{
   position: absolute;
   z-index: 6;
-  top: 30%;
-  right: 10%;
+  top: 36%;
+  right: -8%;
   height: 60%;
   width: 60%;
+}
+
+#content-text{
+  position: absolute;
+  left: 0%;
+  top: 50%;
+}
+#content-text-h1{
+  font-weight: bolder;
+}
+#content-text-p{
+  margin-top: 2%;
+  font-size: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 #footer-nav {
     background-color: #34693F;

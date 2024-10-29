@@ -8,8 +8,8 @@
 {% block content%}
   <div class="content-index">
     <div id="content-text">
-      <h1>Starkids vous souhaite la bienvenue!</h1>
-      <p>
+      <h1 id="content-text-h1">Starkids vous souhaite la bienvenue!</h1>
+      <p id="content-text-p">
           Découvrez nos camps de foot pour enfants, où le sport se mêle à l'amusement et à l'apprentissage.
           Nos entraîneurs passionnés aident chaque jeune à développer ses compétences techniques et son
           esprit d'équipe. Les enfants profitent d'activités ludiques et font de nouvelles rencontres dans
@@ -18,9 +18,6 @@
   </div>
   <div id="image-joueur">
     <img src="{{url_for('static', filename='imgs/image-joueur.svg')}}" alt="Enfant jouant au football">
-  </div>
-  <div>
-    <img id="forme-joueur" src="{{url_for('static', filename='imgs/forme-joueur.svg')}}" alt="cercle">
   </div>
 </div>
 
