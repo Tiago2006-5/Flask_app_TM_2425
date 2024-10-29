@@ -63,7 +63,7 @@ header{
 #header-nav-logo{
     width:22%;
     display: flex;
-    margin-left: 8%;
+    margin-left: 3.5%;
     margin-top: 4%;
 }
 
@@ -84,7 +84,7 @@ header{
     padding-right: 100px;
     position: absolute;
     margin-top: 5%;
-    right: -4%;
+    right: 0;
 }
 
 #header-titre{
@@ -100,10 +100,10 @@ header{
 }
 
 #header-nav-forme{
-  width: 80%;
+  width: 90%;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -5%;
+  right: -3.5%;
 }
 
 #header-nav>ul{
@@ -129,37 +129,170 @@ header{
   position: absolute;
   z-index: 6;
   top: 36%;
-  right: -8%;
-  height: 60%;
-  width: 60%;
+  right: -6%;
+  transform: scale(1.1);
 }
 
 #content-text{
   position: absolute;
-  left: 0%;
+  left: 3.5%;
   top: 50%;
 }
 #content-text-h1{
   font-weight: bolder;
+  margin-left: -18%;
+  
 }
+
+#formulaire{
+  background-color: #34693F;
+  border-radius: 15px;
+  width: 95%;
+  height: 92%;
+  
+}
+#formulaire-2{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00210A;
+  border-radius: 30px;
+  width: 80%;
+  height: 120%;
+  margin-top: 50%;
+}
+
+#logo{
+  position: absolute;
+  left: 38%;
+}
+
+.login-form input[name="email"] {
+  position: absolute;
+  left: 10%;
+  top: 35%;
+  background-color: #D9D9D9;
+    width: 80%;
+    height: 10%;
+    padding: 2%;
+    margin-bottom: 15px;
+    border: 3px solid #00210A;
+    border-radius: 10px;
+    font-size: 24px;
+    
+}
+
+.login-form input[type="password"]{
+  position: absolute;
+  left: 10%;
+  top: 55%;
+  background-color: #D9D9D9;
+    width: 80%;
+    height: 10%;
+    padding: 2%;
+    margin-bottom: 15px;
+    border: 3px solid #00210A;
+    border-radius: 10px;
+    font-size: 24px;
+    
+}
+
+#password::placeholder{
+  color: #00210A;
+  text-decoration: underline;
+}
+
+#email::placeholder{
+  color: #00210A;
+  text-decoration: underline;
+
+}
+
+#autre{
+  position: relative;
+  left: 6%;
+  top: 68%;
+
+}
+
+#inscription{
+  display: inline;
+  margin-right: 56%;
+}
+
+#inscription-2{
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+#oublie{
+  display: inline;
+}
+
+#oublie-2{
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.login-form input[type="submit"] {
+  position: absolute;
+  right: 10%;
+  bottom: 12%;
+  width: 20%;
+  height: 10%;
+  padding: 10px;
+  background-color:#00210A;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
 #content-text-p{
   margin-top: 2%;
   font-size: 21px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
+  width: 70%;
+  text-align: left;
 }
+
+#footer{
+  position: absolute;
+  z-index: 6;
+  bottom: -80%;
+  left: 2.2%;
+  transform: scale(1.05);
+}
+
 #footer-nav {
-    background-color: #34693F;
-    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 100px;
 }
 
 #footer-nav p{
-    color: white;
+  color: white;
+}
+
+#contact{
+  position: absolute;
+  font-size: 70px;
+  left: 5%;
+}
+
+#contact-data{
+  position: absolute;
+  left: 50%;
+  font-size: 40px;
+  margin-bottom:1.5%;
 }
 
 .content-index, .content-404, .content-register, .content-profile{
@@ -179,7 +312,7 @@ header{
 
 #content-text{
 width: 40%;
-margin-left: 5%;
+
 
 }
 
