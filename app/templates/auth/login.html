@@ -14,15 +14,15 @@ Connexion
       <div id="formulaire">
       <img id="logo" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo-starkids"/>
       <form method="post" class="login-form">
-        <label for="email"></label>
-        <input name="email" id="email" placeholder="Email" required>
+        <label class="police-titre" for="email"></label>
+        <input name="email" id="email" class="police-titre" placeholder="Email" required>
         <label for="password"></label>
-        <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <input type="submit" value="Connexion">
+        <input type="password" name="password" id="password" class="police-titre" placeholder="Mot de passe" required>
+        <input type="submit" class="police-titre" value="Connexion">
       </form>
       <ul id="autre">
-        <li id="inscription"><a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
-        <li id="oublie"><a id="oublie-2" href="">Mot de passe oublié ?</a>
+        <li class="police-titre" id="inscription"><a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
+        <li class="police-titre" id="oublie"><a id="oublie-2" href="">Mot de passe oublié ?</a>
       </ul>
 
       {% for message in get_flashed_messages() %}

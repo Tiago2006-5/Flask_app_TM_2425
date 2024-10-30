@@ -9,9 +9,10 @@ S'inscrire
 
 {% block content %}
   <div class="content-register">
-    <div>
-      <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="logo-starkids"/>
-      <form method="post">
+    <div id="formulaire-2-inscription">
+      <div id="formulaire-inscription">
+      <img id="logo" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo-starkids"/>
+      <form method="post" class="register-form">
         <label for="email"></label>
         <input name="email" id="email" placeholder="Email" required>
         <label for="password"></label>
@@ -22,12 +23,13 @@ S'inscrire
         <input type="first_name" id="first_name" placeholder="Prénom" required>
         <label for="telephone"></label>
         <input type="numero_telephone" id="numero_telephone" placeholder="Numéro de téléphone" required>
-        <input type="submit" value="S'inscrire">
+        <input type="submit" id="inscrire" value="S'inscrire">
       </form>
-    
+      
       {% for message in get_flashed_messages() %}
         <div class="flash">{{ message }}</div>
       {% endfor %}
+      </div>
     </div>
   </div>
 {% endblock %}
