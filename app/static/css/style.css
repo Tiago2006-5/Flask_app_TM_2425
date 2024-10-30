@@ -266,23 +266,23 @@ header{
   top: 83%;
 }
 
-.register-form input[name="email"]{
+.register-form input[id="email"]{
   top: 21%;
 }
 
-.register-form input[name="password"]{
+.register-form input[id="password"]{
   top: 33%;
 }
 
-.register-form input[type="first_name"]{
+.register-form input[id="first_name"]{
   top: 45%;
 }
 
-.register-form input[type="name"]{
+.register-form input[id="name"]{
   top: 57%;
 }
 
-.register-form input[type="numero_telephone"]{
+.register-form input[id="numero_telephone"]{
   top: 69%;
 }
 

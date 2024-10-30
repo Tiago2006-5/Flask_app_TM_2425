@@ -14,17 +14,24 @@ def register():
     if request.method == 'POST':
 
         # On récupère les champs 'username' et 'password' de la requête HTTP
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
+        name = request.form['name']
+        first_name = request.form['first_name']
+        telephone = request.form['telephone']
+
+
 
         # On récupère la base de donnée
         db = get_db()
 
         # Si le nom d'utilisateur et le mot de passe ont bien une valeur
         # on essaie d'insérer l'utilisateur dans la base de données
-        if username and password:
+        if email and password and telephone:
             try:
-                db.execute("INSERT INTO Personne (nom, mot_de_passe) VALUES (?, ?)",(username, generate_password_hash(password)))
+                db.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone) VALUES (?, ?, ?)",(email, generate_password_hash(password), telephone))
+                db.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
+
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
                 # On ferme la connexion à la base de données pour éviter les fuites de mémoire
@@ -34,7 +41,7 @@ def register():
 
                 # La fonction flash dans Flask est utilisée pour stocker un message dans la session de l'utilisateur
                 # dans le but de l'afficher ultérieurement, généralement sur la page suivante après une redirection
-                error = f"Utilisateur {username} déjà enregistré."
+                error = f"Utilisateur {email} déjà enregistré."
                 flash(error)
                 return redirect(url_for("auth.register"))
             
@@ -55,7 +62,7 @@ def login():
     if request.method == 'POST':
 
         # On récupère les champs 'username' et 'password' de la requête HTTP
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
 
         # On récupère la base de données
@@ -63,7 +70,7 @@ def login():
         
         # On récupère l'utilisateur avec le username spécifié (une contrainte dans la db indique que le nom d'utilisateur est unique)
         # La virgule après username est utilisée pour créer un tuple contenant une valeur unique
-        user = db.execute('SELECT * FROM Personne WHERE nom = ?', (username,)).fetchone()
+        user = db.execute('SELECT * FROM Parents WHERE Email = ?', (email,)).fetchone()
 
         # On ferme la connexion à la base de données pour éviter les fuites de mémoire
         close_db()
@@ -73,16 +80,16 @@ def login():
         error = None
         if user is None:
             error = "Nom d'utilisateur incorrect"
-        elif not check_password_hash(user['mot_de_passe'], password):
+        elif not check_password_hash(user['Mot_de_passe'], password):
             error = "Mot de passe incorrect"
 
         # S'il n'y pas d'erreur, on ajoute l'id de l'utilisateur dans une variable de session
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
         if error is None:
             session.clear()
-            session['user_id'] = user['Id_personne']
+            session['user_id'] = user['Id_parent']
             # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
-            return redirect("/")
+            return redirect("/profile")
         
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
@@ -119,7 +126,7 @@ def load_logged_in_user():
     else:
          # On récupère la base de données et on récupère l'utilisateur correspondant à l'id stocké dans le cookie session
         db = get_db()
-        g.user = db.execute('SELECT * FROM Personne WHERE Id_Personne = ?', (user_id,)).fetchone()
+        g.user = db.execute('SELECT * FROM Parents WHERE Id_parent = ?', (user_id,)).fetchone()
         # On ferme la connexion à la base de données pour éviter les fuites de mémoire
         close_db()
 
