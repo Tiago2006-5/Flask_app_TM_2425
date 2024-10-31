@@ -89,7 +89,7 @@ def login():
             session.clear()
             session['user_id'] = user['Id_parent']
             # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
-            return redirect("/profile")
+            return redirect("/")
         
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
