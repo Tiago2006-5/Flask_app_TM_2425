@@ -2,37 +2,55 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-css/bootstrap.min.css') }}">
+
 </head>
 
 <body>
-    <header id="header">
-        <nav id="header-nav">
-            <div id="header-nav-logo">
-                <a href="{{url_for('home.landing_page')}}">
-                    <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="logo-starkids"/>
-                </a>
-            </div>
-            <div id="header-nav-forme">
-                <img src="{{url_for('static', filename='imgs/forme-haut-de-page.svg')}}" alt="forme du haute de page" id="header-nav-forme"/>
-            </div>
-            
-            <ul id="header-nav-menu">
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand header-nav-logo" href="/">
+                <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="image du logo de Starkids">
+            </a>
+            <img id="header-nav-forme" src="{{url_for('static', filename='imgs/forme-haut-de-page.svg')}}" alt="forme du haut de page">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
                 {% if g.user %}
                     <li><span>{{ g.user['username'] }}</span>
-                    <li class="police-titre" id="camps"><a href="{{ url_for('auth.register') }}">Camps</a>
-                    <li class="police-titre" id="informations"><a href="{{ url_for('auth.login') }}">Informations</a>
-                    <li class="police-titre" id="a propos"><a href="{{ url_for('auth.login') }}">A propos</a>
-                    <li class="police-titre" id="mon compte"><a href="{{ url_for('auth.login') }}">Mon Compte</a>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('auth.register') }}">Camps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Informations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Mon compte</a>
+                    </li>
                 {% else %}
-                    <li class="police-titre" id="camps"><a href="{{ url_for('auth.register') }}">Camps</a>
-                    <li class="police-titre" id="informations"><a href="{{ url_for('auth.login') }}">Informations</a>
-                    <li class="police-titre" id="a propos"><a href="{{ url_for('auth.login') }}">A propos</a>
-                    <li class="police-titre" id="connexion"><a href="{{ url_for('auth.login') }}">Connexion</a>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('auth.register') }}">Camps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Informations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Connexion</a>
+                    </li>
                 {% endif %}
             </ul>
-            <div class="police-titre-bold" id="header-titre">{% block titre_barre %}{% endblock %}</div>
-        </nav>
-    </header>
+          </div>
+        </div>
+      </nav>
         
     <main id="main-content">
         {% block content %}{% endblock %}
@@ -56,4 +74,5 @@
     </footer>
 
     <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap-js/bootstrap.bundle.min.js') }}"></script>
 </body>

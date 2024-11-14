@@ -93,8 +93,21 @@ header{
     align-items: center;
 }
 
-#header-nav-logo img{
-    width: 100%;
+.header-nav-logo img{
+    width: 20vw;
+    margin-left: 3vw;
+}
+
+.navbar-toggler{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  filter: invert(1000%);
+  width: 10vw;
+  height: 5vh;
+}
+.navbar-toggler-logo{
+  width: 10vw;
 }
 
 #header-nav-menu{
@@ -118,11 +131,16 @@ header{
 
 }
 
+.container-fluid {
+  position: relative;
+}
+
 #header-nav-forme{
-  width: 90%;
   position: absolute;
-  top: -5%;
-  right: -3.5%;
+  top: -15%;
+  right: -3%;
+  z-index: -1;
+  width: 75vw;
 }
 
 #header-nav>ul{
@@ -191,7 +209,6 @@ header{
 }
 
 #formulaire-2-inscription{
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -367,13 +384,13 @@ header{
   text-align: left;
 }
 
-#footer{
+/* #footer{
   position: absolute;
   z-index: 6;
   bottom: -150%;
   left: 2.2%;
   transform: scale(1.05);
-}
+} */
 
 #footer-nav {
     display: flex;

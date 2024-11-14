@@ -29,8 +29,13 @@ def register():
         # on essaie d'insérer l'utilisateur dans la base de données
         if email and password and telephone:
             try:
-                db.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone) VALUES (?, ?, ?)",(email, generate_password_hash(password), telephone))
-                db.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
+                curseur = db.cursor()
+                curseur.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
+                print("DFADFDFADS")
+                print(db.cursor().lastrowid)
+                db.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid))
+              
+
 
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
@@ -89,7 +94,7 @@ def login():
             session.clear()
             session['user_id'] = user['Id_parent']
             # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
-            return redirect("/")
+            return redirect("/user/profile")
         
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
