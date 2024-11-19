@@ -14,13 +14,13 @@
                 <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="image du logo de Starkids">
             </a>
             <img id="header-nav-forme" src="{{url_for('static', filename='imgs/forme-haut-de-page.svg')}}" alt="forme du haut de page">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav " aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 {% if g.user %}
-                    <li><span>{{ g.user['username'] }}</span>
+                    <li><span>{{ g.user['username'] }}</span></li>
                     <li class="nav-item">
                         <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('auth.register') }}">Camps</a>
                     </li>

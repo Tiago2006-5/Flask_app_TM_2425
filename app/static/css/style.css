@@ -63,6 +63,11 @@
   font-family: oceanicdrift;
 }
 
+.nav-link.police-titre {
+  color: white !important;
+  font-size: clamp(20px,2vw,34px);
+}
+
 .police-titre-bold{
   font-family: oceanicdriftbold;
 }
@@ -98,25 +103,25 @@ header{
     margin-left: 3vw;
 }
 
+.nav-item {
+  white-space: nowrap;
+}
+
+button{
+  width: 10vw;
+  height: 5vh;
+}
+
 .navbar-toggler{
   display: flex;
   align-content: center;
   align-items: center;
   filter: invert(1000%);
-  width: 10vw;
-  height: 5vh;
 }
 .navbar-toggler-logo{
   width: 10vw;
 }
 
-#header-nav-menu{
-    width: 80%;
-    padding-right: 100px;
-    position: absolute;
-    margin-top: 5%;
-    right: 0;
-}
 
 #header-titre{
   position: absolute;
@@ -130,6 +135,18 @@ header{
   left: 35%;
 
 }
+
+.navbar-nav{
+  display: flex;
+  margin-left: 28%;
+  gap: 10%;
+}
+
+.navbar-nav li{
+  text-align: right;
+}
+
+
 
 .container-fluid {
   position: relative;
@@ -149,11 +166,6 @@ header{
     justify-content: flex-end;
     align-items: center;
     gap: 80px;
-}
-
-#header-nav li a:hover{
-    
-    
 }
 
 #header-nav a{
