@@ -20,7 +20,7 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
-    background-color: #D9D9D9;
+    background-color: #D9D9D9 !important;
     overflow-x: hidden;
   }
   
@@ -63,9 +63,21 @@
   font-family: oceanicdrift;
 }
 
+/*header*/
+
 .nav-link.police-titre {
   color: white !important;
-  font-size: clamp(20px,2vw,34px);
+  font-size: clamp(12px,2vw,34px);
+}
+
+.collapse.show .nav-link{
+  color: #00210A !important;
+  font-size: 20px;
+}
+
+.collapse.show .navbar-nav{
+  display: flex;
+  align-items: center;
 }
 
 .police-titre-bold{
@@ -83,13 +95,6 @@ header{
     flex-direction: row;
 }
 
-#header-nav-logo{
-    width:22%;
-    display: flex;
-    margin-left: 3.5%;
-    margin-top: 6%;
-}
-
 #header-nav-logo>a{
     width: 100%;
     height: 100%;
@@ -98,18 +103,19 @@ header{
     align-items: center;
 }
 
-.header-nav-logo img{
-    width: 20vw;
-    margin-left: 3vw;
+.header-nav-logo{
+  box-sizing: border-box;
+  width: 20vw;
+  margin-left: 3vw;
 }
 
 .nav-item {
   white-space: nowrap;
 }
 
+
 button{
-  width: 10vw;
-  height: 5vh;
+  width: 50px;
 }
 
 .navbar-toggler{
@@ -117,36 +123,42 @@ button{
   align-content: center;
   align-items: center;
   filter: invert(1000%);
-}
-.navbar-toggler-logo{
-  width: 10vw;
+  border-width: 2px !important;
+  border-style: dashed;
 }
 
-
-#header-titre{
+.navbar_title{
   position: absolute;
   text-align: center;
-  font-size: 154px;
+  justify-content: center;
+  font-size: clamp(15px, 10vw, 134px);
+  letter-spacing: 0.5vw;
   font-weight: bolder;
   color: #ffffff;
-  width: 55%;
-  right: 3.5%;
-  top: 15%;
-  left: 35%;
+  width: 100vw;
+  margin-top: 20%;
+  right: -20%;
+  user-select: none;
+}
 
+@media(max-width:800px) {
+  .navbar_title{
+    display: none;
+  }
+  
 }
 
 .navbar-nav{
   display: flex;
-  margin-left: 28%;
+  margin-left: clamp(75px,22.5vw,375px);
+  margin-top: 1.5%;
   gap: 10%;
 }
+
 
 .navbar-nav li{
   text-align: right;
 }
-
-
 
 .container-fluid {
   position: relative;
@@ -174,22 +186,21 @@ button{
     font-size: 35px;
 }
 
-#image-joueur{
-  position: absolute;
-  z-index: 6;
-  top: 36%;
-  right: -6%;
-  transform: scale(1.1);
+/*connexion*/
+
+.content-login{
+  margin-top: 15%;
+  margin-bottom: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#content-text{
-  position: absolute;
-  left: 3.5%;
-  top: 50%;
-}
-#content-text-h1{
-  margin-left: -12%;
-  letter-spacing: 2px;
+@media(max-width:400px){
+  #formulaire{
+    border-radius: 20px !important;
+  }
   
 }
 
@@ -197,148 +208,83 @@ button{
   background-color: #34693F;
   border-radius: 15px;
   width: 94%;
-  height: 90%;
+  height: 94%;
   
 }
 
-#formulaire-inscription{
-  background-color: #34693F;
-  border-radius: 15px;
-  width: 94%;
-  height: 94%;
-}
-
-#formulaire-2{
-  position: relative;
+#formulaire-border{
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #00210A;
   border-radius: 30px;
   width: 80%;
-  height: 120%;
-  margin-top: 50%;
-}
-
-#formulaire-2-inscription{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #00210A;
-  border-radius: 30px;
-  width: 80%;
-  height: 200%;
-  margin-top: 81%;
+  margin-top: 3vh;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 }
 
 #logo{
   position: absolute;
-  left: 38%;
+  left: 40%;
+  width: 20vw;
 }
 
-.login-form input[name="email"] {
-  position: absolute;
-  left: 10%;
-  top: 35%;
-  background-color: #D9D9D9;
-    width: 80%;
-    height: 10%;
-    padding: 2%;
-    margin-bottom: 15px;
-    border: 3px solid #00210A;
-    border-radius: 10px;
-    font-size: 24px;
-    
+#email{
+  margin-top: 10vw !important;
 }
 
-.login-form input[type="password"]{
-  position: absolute;
-  left: 10%;
-  top: 55%;
+.login-form input{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  font-family: oceanicdrift;
   background-color: #D9D9D9;
   width: 80%;
-  height: 10%;
+  height: clamp(35px, 5vw, 75px);
   padding: 2%;
-  margin-bottom: 15px;
   border: 3px solid #00210A;
   border-radius: 10px;
-  font-size: 24px;
-    
+  font-size: 2vw;
+
 }
 
-.register-form input:not(#inscrire){
-  left: 10%;
-  font-family: oceanicdrift;
-  position: absolute;
-  background-color: #D9D9D9;
-  width: 80%;
-  height: 6.1%;
-  padding: 2%;
-  margin-bottom: 15px;
-  border: 3px solid #00210A;
+.login-form input::placeholder{
+  color: #00210A;
+  text-decoration: underline;
+}
+
+.login-form input{
+  margin-top: 3vw;;
+
+}
+
+@media(max-width:800px) {
+  
+  .login-form input{
+    font-size: 2vw !important;
+  }
+  .login-form input[type = "submit"]{
+    padding: none;
+  }
+  #connexion{
+    letter-spacing: 0.1vw;
+  }
+}
+
+.login-form input[type="submit"] {
+  margin-left: 70%;
+  bottom: 12%;
+  width: 20%;
+  height: clamp(35px, 5vw, 75px);
+  padding: 10px;
+  background-color:#00210A;
+  border: none;
   border-radius: 10px;
-  font-size: 24px;
-
-}
-
-.register-form input[id="inscrire"]{
-  font-family: oceanicdrift;
-  color: #ffffff;
-  background-color: #00210A;
-  position: absolute;
-  height: 6.1%;
-  width: 15%;
-  border: 3px solid #00210A;
-  border-radius: 10px;
-  font-size: 36px;
-  left: 75%;
-  top: 83%;
-}
-
-.register-form input[id="email"]{
-  top: 21%;
-}
-
-.register-form input[id="password"]{
-  top: 33%;
-}
-
-.register-form input[id="first_name"]{
-  top: 45%;
-}
-
-.register-form input[id="name"]{
-  top: 57%;
-}
-
-.register-form input[id="numero_telephone"]{
-  top: 69%;
-}
-
-#password::placeholder{
-  color: #00210A;
-  text-decoration: underline;
-}
-
-#email::placeholder{
-  color: #00210A;
-  text-decoration: underline;
-
-}
-
-#name::placeholder{
-  color: #00210A;
-  text-decoration: underline;
-}
-
-#first_name::placeholder{
-  color: #00210A;
-  text-decoration: underline;
-}
-
-#numero_telephone::placeholder{
-  color: #00210A;
-  text-decoration: underline;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 3vw;
+  cursor: pointer;
 }
 
 
@@ -351,12 +297,12 @@ button{
 
 #inscription{
   display: inline;
-  margin-right: 56%;
+  margin-right: 30vw;
 }
 
 #inscription-2{
   color: #ffffff;
-  font-size: 24px;
+  font-size: 2vw;
   text-decoration: none;
 }
 
@@ -366,49 +312,183 @@ button{
 
 #oublie-2{
   color: #ffffff;
-  font-size: 24px;
+  font-size: 2vw;
   text-decoration: none;
 }
 
-.login-form input[type="submit"] {
-  position: absolute;
-  right: 10%;
-  bottom: 12%;
-  width: 20%;
-  height: 10%;
-  padding: 10px;
-  background-color:#00210A;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  letter-spacing: 2px;
-  font-size: 34px;
-  cursor: pointer;
-  transition: background-color 0.3s; 
+
+/*inscription*/
+
+
+.content-register{
+  margin-top: 15%;
+  margin-bottom: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#content-text-p{
-  margin-top: 2%;
-  font-size: 21px;
+#formulaire-inscription{
+  background-color: #34693F;
+  border-radius: 15px;
+  width: 94%;
+  height: 94%;
+}
+
+#formulaire-border-inscription{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00210A;
+  border-radius: 30px;
+  width: 80%;
+  margin-top: 3vh;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+#logo-inscription{
+  position: absolute;
+  left: 40%;
+  width: 20vw;
+}
+
+#email{
+  margin-top: 10vw !important;
+}
+.register-form input:not(#inscrire){
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  font-family: oceanicdrift;
+  background-color: #D9D9D9;
+  width: 80%;
+  height: clamp(35px, 5vw, 75px);
+  padding: 2%;
+  border: 3px solid #00210A;
+  border-radius: 10px;
+  font-size: 2vw;
+
+}
+.register-form input{
+  margin-top: 3vw;;
+
+}
+
+@media(max-width:800px) {
+  
+  .register-form input:not(#inscrire){
+    font-size: 3vw !important;
+  }
+}
+
+.register-form input::placeholder{
+  color: #00210A;
+  text-decoration: underline;
+}
+
+.register-form input[id="inscrire"]{
+  font-family: oceanicdrift;
+  color: #ffffff;
+  background-color: #00210A;
+  height: clamp(35px, 5vw, 75px);
+  width: 15%;
+  border: 3px solid #00210A;
+  border-radius: 10px;
+  font-size: 2vw;
+  margin-left: 75%;
+  letter-spacing: 0.08vw;
+  margin-bottom: clamp(35px, 5vw, 75px);;
+}
+
+/*index*/
+
+@media(max-width:800px){
+  #image-joueur{
+    display: none;
+  }
+  
+  #content-text{
+    display: flex;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 90% !important;
+    text-align: center !important;
+  }
+
+  #content-text-h1{
+    width: 80vw;
+    margin: auto;
+    margin-right: 5vw !important;
+    font-size: 7vw !important;
+    white-space: wrap !important;
+    text-align: center !important;
+  }
+  #content-text-p{
+    font-size: 4vw !important;
+    width: 60% !important;
+    margin: auto;
+    text-align: center !important;
+  }
+}
+
+
+#image-joueur{
+  z-index: 6;
+  margin-right: -15vw;
+  margin-top: 5%;
+}
+
+.content-index{
+  display: flex;
+  justify-content: flex-start;
+}
+
+#content-text{
+  display:flex;
+  flex-direction: column;
+  margin-left: 4vw;
+  margin-top: 13%;
+}
+#content-text h1{
+  font-size: clamp(14px, 2.5vw, 90px);
+  letter-spacing: clamp(0.5px,0.2vh,2px);
+  white-space: nowrap;
+  
+}
+
+#content-text p{
+  font-size: clamp(12px, 1.5vw, 21px);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  width: 70%;
+  width: 30vw;
   text-align: left;
+  gap: 2vh;
 }
 
-/* #footer{
-  position: absolute;
-  z-index: 6;
-  bottom: -150%;
-  left: 2.2%;
-  transform: scale(1.05);
-} */
+/*footer*/
+
+#footer{
+  margin-top: 1%;
+  height: 10vh;
+}
 
 #footer-nav {
+  position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    margin-top:2.2%;
+}
+
+#forme-footer{
+  position: absolute;
+  transform: scale(1.1);
+  width: 92%;
+  margin-left: 4vw;
+  z-index: 1;
 }
 
 #footer-nav p{
@@ -416,37 +496,45 @@ button{
 }
 
 #contact{
-  position: absolute;
-  font-size: 70px;
-  left: 5%;
+  font-size: clamp(20px,5vw,70px);
+  z-index: 2;
+  align-items: center;
+  margin-left: 4vw;
 }
 
 #contact-data{
-  position: absolute;
-  left: 40%;
-  font-size: 40px;
-  margin-bottom:1.5%;
+  z-index: 4;
+  font-size: clamp(10px, 3.5vw, 40px);
+  white-space: nowrap;
 }
 
-.content-index, .content-404, .content-register, .content-profile{
-    height:80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.telephone{
+  margin: -3vh;
+  margin-left: 15vw;
 }
+
+.mail{
+  margin-top: 4vw;
+  margin-left: 15vw;
+}
+
+.content-404, .content-profile{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 .content-index h1{
     text-align: center;
+
 }
 
 .content-profile-title{
     display: block; 
     text-align:center;
-}
-
-#content-text{
-width: 40%;
-
-
 }
 
 

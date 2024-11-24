@@ -8,7 +8,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
             <a class="navbar-brand header-nav-logo" href="/">
                 <img src="{{url_for('static', filename='imgs/logo-Starkids.svg')}}" alt="image du logo de Starkids">
@@ -18,30 +18,37 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+            <h1 class="navbar_title police-titre">{% block navbar_title %}{% endblock %}</h1>
             <ul class="navbar-nav">
                 {% if g.user %}
                     <li><span>{{ g.user['username'] }}</span></li>
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('auth.register') }}">Camps</a>
+                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('camp.camps') }}">Camps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Informations</a>
+                        <a class="nav-link active police-titre" href="{{ url_for('info.informations') }}">Informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">A propos</a>
+                        <a class="nav-link active police-titre" href="{{ url_for('a_propos.propos') }}">A propos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Mon compte</a>
-                    </li>
+                    {% if g.user['username'] == g.admin['username']%}
+                        <li class="nav-item">
+                        <a class="nav-link active police-titre" href="{{ url_for('admin.show_admin') }}">Organisation</a>
+                        </li>
+                    {% else %}    
+                        <li class="nav-item">
+                            <a class="nav-link active police-titre" href="{{ url_for('user.show_profile') }}">Mon compte</a>
+                        </li>
+                        {% endif %}
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('auth.register') }}">Camps</a>
+                        <a class="nav-link active police-titre" aria-current="page" href="{{ url_for('camp.camps') }}">Camps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Informations</a>
+                        <a class="nav-link active police-titre" href="{{ url_for('info.informations') }}">Informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">A propos</a>
+                        <a class="nav-link active police-titre" href="{{ url_for('a_propos.propos') }}">A propos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active police-titre" href="{{ url_for('auth.login') }}">Connexion</a>
@@ -57,19 +64,19 @@
     </main>
 
     <footer id="footer">
+        <img id="forme-footer" src="{{url_for('static', filename='imgs/forme-footer.svg')}}" alt="forme bas de page"/>
         <div id="footer-nav">
             <div id="contact">
-                <p class="police-titre" id="contact-titre">Contacts:</p>
+                <p class="police-titre">Contacts:</p>
             </div>
             <div id="contact-data">
-                <div class="police-titre" id="telephone">
+                <div class="police-titre telephone">
                     <p>Par téléphone au +41 77 415 59 73</p>
                 </div>
-                <div class="police-titre" id="email">
+                <div class="police-titre mail">
                     <p>Par email à Starkids.contact@gmail.com</p>
                 </div>
             </div>
-            <img id="forme-footer" src="{{url_for('static', filename='imgs/forme-footer.svg')}}" alt="forme bas de page"/>
         </div>
     </footer>
 

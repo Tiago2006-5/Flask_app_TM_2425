@@ -3,14 +3,17 @@
 {% block title %}
 Connexion
 {% endblock %}
+{%block navbar_title %}
+Connexion
+{% endblock %}
 {%block titre_barre%}
 Connexion
 {% endblock %}
 
 
 {% block content %}
-  <div class="content-register">
-    <div id="formulaire-2">
+  <div class="content-login">
+    <div id="formulaire-border">
       <div id="formulaire">
       <img id="logo" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo-starkids"/>
       <form method="post" class="login-form">
@@ -18,7 +21,7 @@ Connexion
         <input name="email" id="email" class="police-titre" placeholder="Email" required>
         <label for="password"></label>
         <input type="password" name="password" id="password" class="police-titre" placeholder="Mot de passe" required>
-        <input type="submit" class="police-titre" value="Connexion">
+        <input type="submit" id="connexion" class="police-titre" value="Connexion">
       </form>
       <ul id="autre">
         <li class="police-titre" id="inscription"><a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Organisation
+{% endblock %}
+
+{%block navbar_title %}
+Organisation
+{% endblock %}
+
+{%block titre_barre%}
+Connexion
+{% endblock %}
+
+
+{% block content %}
+<div id="content-admin">
+    <h2 id="title-admin" class="police-titre">Mes camps</h2>
+    <div id="boutons-admin">
+        <a href="{{ url_for('camp.camps') }}">
+            <div class="carte-admin">
+                <p class="police-titre">Camps annoncés</p>
+            </div>
+        </a>
+
+        <a href="">
+            <div class="carte-admin">
+                <p class="police-titre">Annoncer un camps</p>
+            </div>
+        </a>
+    </div>
+
+
+
+</div>
+{% endblock %}

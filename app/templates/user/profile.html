@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 
+{% block navbar_title %}
+  Compte
+{% endblock %}
+
 {% block title %}
   Profil
 {% endblock %}
 
 {% block content %}
-  <div class="content-profile">
-    <div>
-      <div class="content-profile-title">
-        <h2>Profil de l'utilisateur connecté</h2>
-      </div>
-      <ul>
-        <li>Nom d'utilisateur: {{g.user.username}}</li>
-        <li>Mot de passe: {{g.user.password}}</li>
-      </ul>
+<div class="content-profile">
+  <div>
+    <div class="content-profile-title">
+      <h2>Profil de l'utilisateur connecté</h2>
     </div>
-  </div>  
+    <ul>
+      <li>Nom d'utilisateur: {{g.user.username}}</li>
+      <li>Mot de passe: {{g.user.password}}</li>
+    </ul>
+  </div>
+</div>  
 {% endblock %}
