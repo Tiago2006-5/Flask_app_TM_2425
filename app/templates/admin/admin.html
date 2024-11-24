@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Organisation
-{% endblock %}
-
 {%block navbar_title %}
 Organisation
 {% endblock %}
@@ -15,19 +11,28 @@ Connexion
 
 {% block content %}
 <div id="content-admin">
-    <h2 id="title-admin" class="police-titre">Mes camps</h2>
-    <div id="boutons-admin">
-        <a href="{{ url_for('camp.camps') }}">
-            <div class="carte-admin">
-                <p class="police-titre">Camps annoncés</p>
-            </div>
-        </a>
+    <img id="forme-admin" src="{{url_for('static', filename='imgs/forme-page-user.svg')}}" alt="forme-page-user">
+    <div id="menu-admin">
+        <h2 id="title-admin" class="police-titre">Mes camps</h2>
+        <div id="log-out">
+            <a href="{{ url_for('auth.logout') }}">
+                <img src="{{url_for('static', filename='imgs/symbole-log-out.svg')}}" alt="symbole de déconnexion">
+                <p class="log-out-texte police-titre">Déconnexion</p>
+            </a>
+        </div>
+        <div id="boutons-admin">
+            <a href="{{ url_for('camp.camps') }}">
+                <div class="carte-admin">
+                    <p class="police-titre text-admin">Camps annoncés</p>
+                </div>
+            </a>
 
-        <a href="">
-            <div class="carte-admin">
-                <p class="police-titre">Annoncer un camps</p>
-            </div>
-        </a>
+            <a href="{{ url_for('admin.publish') }}">
+                <div class="carte-admin">
+                    <p class="police-titre text-admin">Annoncer un camp</p>
+                </div>
+            </a>
+        </div>
     </div>
 
 

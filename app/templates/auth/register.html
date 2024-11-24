@@ -1,8 +1,4 @@
 {% extends 'base.html' %}
-
-{% block title %}
-S'inscrire
-{% endblock %}
 {% block titre_barre %}
 S'inscrire
 {% endblock %}
@@ -22,7 +18,7 @@ S'inscrire
         <label for="prenom"></label>
         <input type="text" name="first_name" id="first_name" placeholder="Prénom">
         <label for="telephone"></label>
-        <input type="text" name="telephone" id="numero_telephone" placeholder="Numéro de téléphone" required>
+        <input type="tel" name="telephone" id="numero_telephone" placeholder="Numéro de téléphone" required>
         <input type="submit" id="inscrire" value="S'inscrire">
       </form>
       

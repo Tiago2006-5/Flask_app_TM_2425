@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block navbar_title %}
+Organisation
+{% endblock %}
+
+{%block titre_barre%}
+Connexion
+{% endblock %}
+
+
+{% block content %}
+<div id="content-publish">
+    <img id="forme-publish" src="{{url_for('static', filename='imgs/forme-page-user.svg')}}" alt="forme-page-user">
+    <div id="menu-publish">
+        <h2 id="title-admin" class="police-titre">Mes camps</h2>
+    </div>
+    <form method="post" class="Publish-form">
+        <input type="text" name="Lieu" id="lieu" class="police-titre" placeholder="Lieu" required>
+        <input type="text" name="Adresse" id="adresse" class="police-titre" placeholder="Adresse" required>
+        <input type="text" name="Date" id="date" class="police-titre" placeholder="Date" required>
+        <input type="number" name="Prix" id="prix" class="police-titre" placeholder="Prix" required>
+        <input type="submit" id="Envoyer" class="police-titre" value="Envoyer">
+      </form>
+    </div>
+
+
+
+</div>
+{% endblock %}

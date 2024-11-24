@@ -468,6 +468,122 @@ button{
   gap: 2vh;
 }
 
+/* content admin */
+
+#content-admin{
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  margin-bottom: 30%;
+  height: 100%;
+}
+
+#forme-admin{
+  position: absolute;
+  transform: scale(1.1);
+}
+
+#menu-admin{
+  width: 100%;
+  z-index: 2;
+}
+
+#content-admin h2{
+  margin-top: 1vw;
+  margin-bottom: 3%;
+  font-size: clamp(13px, 5vw, 90px);
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#boutons-admin{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#boutons-admin a{
+  text-decoration: none;
+  width: 23vw;
+  height: 23vw;
+}
+
+.carte-admin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23vw;
+  height: 23vw;
+  border-radius: 4vw;
+  background-color: #34693F;
+  justify-content: center;
+  align-items: center;
+}
+
+.carte-admin p{
+  color: #ffffff;
+  font-size: clamp(14px, 5vw, 90px);
+  text-align: center;
+
+}
+
+#log-out{
+  justify-self: flex-end;
+  margin-right: 5vw;
+  margin-bottom: 7.5%;
+}
+
+#log-out a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+}
+
+#log-out img{
+  width: 5vw;
+}
+
+#log-out p{
+  margin-bottom: 0 !important;
+  color: #ffffff;
+  font-size: clamp(14px, 3vw, 90px);
+}
+
+/*content publish */
+#content-publish{
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  margin-bottom: 60%;
+  height: 100%;
+}
+
+#forme-publish{
+  z-index: -1;
+  position: absolute;
+  transform: scale(1.1);
+}
+
+#menu-publish{
+  width: 100%;
+  z-index: 2;
+}
+
+#content-publish h2{
+  margin-top: 1vw;
+  margin-bottom: 3%;
+  font-size: clamp(13px, 5vw, 90px);
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.publish-form{
+  z-index: 2;
+}
+
 /*footer*/
 
 #footer{
@@ -524,8 +640,6 @@ button{
   align-items: center;
   justify-content: center;
 }
-
-
 
 .content-index h1{
     text-align: center;

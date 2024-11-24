@@ -31,8 +31,6 @@ def register():
             try:
                 curseur = db.cursor()
                 curseur.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
-                print("DFADFDFADS")
-                print(db.cursor().lastrowid)
                 db.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid))
               
 
@@ -92,7 +90,7 @@ def login():
         if error is None and email == ADMIN['Email'] and check_password_hash(ADMIN['Mot_de_passe'], password):
             session.clear
             session['user_id'] = user['Id_parent']
-            return redirect("/user/admin")
+            return redirect("/admin/admin")
 
 
         # S'il n'y pas d'erreur, on ajoute l'id de l'utilisateur dans une variable de session
