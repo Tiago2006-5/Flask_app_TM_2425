@@ -33,11 +33,12 @@ def publish():
 
         if lieu and adresse and date and prix:
             try:
-                db.execute("INSERT INTO Camps (Lieu, Date_, Prix, Adresse) VALUES (?, ?, ?, ?)", (lieu, date, prix, adresse))
+                curseur = db.cursor()
 
+                curseur.execute("INSERT INTO Camps (Lieu, Date_, Prix, Adresse) VALUES (?, ?, ?, ?)", (lieu, date, prix, adresse))
 
                 db.commit()
-
+                print(lieu,adresse,date,prix)
                 close_db()
             except db.IntegrityError:
 

@@ -30,11 +30,13 @@ def register():
         if email and password and telephone:
             try:
                 curseur = db.cursor()
+                
                 curseur.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
-                db.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid))
+                
+                db.commit()
+
+                curseur.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid))
               
-
-
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
                 # On ferme la connexion à la base de données pour éviter les fuites de mémoire
@@ -91,20 +93,22 @@ def login():
             session.clear
             session['user_id'] = user['Id_parent']
             return redirect("/admin/admin")
+        
+        else:
 
 
         # S'il n'y pas d'erreur, on ajoute l'id de l'utilisateur dans une variable de session
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
-        if error is None:
-            session.clear()
-            session['user_id'] = user['Id_parent']
-            # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
-            return redirect("/user/profile")
-        
-        else:
-            # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
-            flash(error)
-            return redirect(url_for("auth.login"))
+            if error is None:
+                session.clear()
+                session['user_id'] = user['Id_parent']
+                # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
+                return redirect("/user/profile")
+            
+            else:
+                # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
+                flash(error)
+                return redirect(url_for("auth.login"))
     else:
         return render_template('auth/login.html')
 
