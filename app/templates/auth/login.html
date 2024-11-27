@@ -20,8 +20,12 @@ Connexion
         <input type="submit" id="connexion" class="police-titre" value="Connexion">
       </form>
       <ul id="autre">
-        <li class="police-titre" id="inscription"><a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
-        <li class="police-titre" id="oublie"><a id="oublie-2" href="">Mot de passe oublié ?</a>
+        <li class="police-titre" id="inscription">
+          <a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
+        </li>
+        <li class="police-titre" id="oublie">
+          <a id="oublie-2" href="">Mot de passe oublié ?</a>
+        </li>
       </ul>
 
       {% for message in get_flashed_messages() %}

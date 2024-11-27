@@ -29,13 +29,15 @@ def register():
         # on essaie d'insérer l'utilisateur dans la base de données
         if email and password and telephone:
             try:
+
+
                 curseur = db.cursor()
                 
-                curseur.execute("INSERT INTO Personne (Nom, Prenom) VALUES (?, ?)",(name, first_name))
+                curseur.execute("INSERT INTO Personne (Nom, Prenom, Rôle) VALUES (?, ?, ?)",(name, first_name, "utilisateur"))
                 
                 db.commit()
 
-                curseur.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid))
+                curseur.execute("INSERT INTO Parents (Email, Mot_de_passe, Numero_de_telephone, Id_personne) VALUES (?, ?, ?, ?)",(email, generate_password_hash(password), telephone, curseur.lastrowid,))
               
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()

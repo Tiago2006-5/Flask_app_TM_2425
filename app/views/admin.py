@@ -45,6 +45,7 @@ def publish():
                 error = "Error"
                 flash(error)
                 return redirect(url_for("admin.publish"))
+            return redirect(url_for("camp/camps"))
         else:
             error = "error"
             flash(error)
