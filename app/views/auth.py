@@ -78,8 +78,7 @@ def login():
         # On récupère l'utilisateur avec le username spécifié (une contrainte dans la db indique que le nom d'utilisateur est unique)
         # La virgule après username est utilisée pour créer un tuple contenant une valeur unique
         user = db.execute('SELECT * FROM Parents WHERE Email = ?', (email,)).fetchone()
-        ADMIN = db.execute('SELECT * From Parents WHERE Id_Parent = 1').fetchone()
-
+        role = db.execute('SELECT * FROM Personne WHERE Id_personne = ?', (user['Id_Parent'],)).fetchone()
         # On ferme la connexion à la base de données pour éviter les fuites de mémoire
         close_db()
 
@@ -91,26 +90,24 @@ def login():
         elif not check_password_hash(user['Mot_de_passe'], password):
             error = "Mot de passe incorrect"
 
-        if error is None and email == ADMIN['Email'] and check_password_hash(ADMIN['Mot_de_passe'], password):
-            session.clear
-            session['user_id'] = user['Id_parent']
-            return redirect("/admin/admin")
-        
-        else:
-
 
         # S'il n'y pas d'erreur, on ajoute l'id de l'utilisateur dans une variable de session
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
-            if error is None:
-                session.clear()
+        if error is None:
+            session.clear()
+            if role['Rôle'] == "admin":
+                session['user_id'] = user['Id_parent']
+
+                return redirect("/admin/admin")
+            else:
                 session['user_id'] = user['Id_parent']
                 # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
                 return redirect("/user/profile")
             
-            else:
+        else:
                 # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
-                flash(error)
-                return redirect(url_for("auth.login"))
+            flash(error)
+            return redirect(url_for("auth.login"))
     else:
         return render_template('auth/login.html')
 
@@ -143,7 +140,7 @@ def load_logged_in_user():
          # On récupère la base de données et on récupère l'utilisateur correspondant à l'id stocké dans le cookie session
         db = get_db()
         g.user = db.execute('SELECT * FROM Parents WHERE Id_parent = ?', (user_id,)).fetchone()
-        g.admin = db.execute('SELECT * FROM Parents WHERE Id_parent = 1').fetchone
+        g.role = db.execute('SELECT * FROM Personne WHERE Id_Personne = ?', (g.user['Id_parent'],)).fetchone()
         # On ferme la connexion à la base de données pour éviter les fuites de mémoire
         close_db()
 

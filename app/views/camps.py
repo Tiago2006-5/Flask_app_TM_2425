@@ -7,4 +7,9 @@ camps_bp = Blueprint('camp', __name__, url_prefix = '/camps')
 
 @camps_bp.route('/camps')
 def camps():
+    db = get_db()
+
+    cursor = db.execute('Select * From Camps')
+    g.camps = cursor.fetchall()
+    close_db()
     return render_template('camps/camp.html')
