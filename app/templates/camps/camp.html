@@ -12,41 +12,78 @@ Connexion
 
 
 {% block content %}
-    {% for camp in g.camps %}
-        <div class="cartes">
-            
-            <div class="barre-camp">
-                <p class="police-titre">
-                    Lieu
-                </p>
-                <img src="" alt="">
-                <p>
-                    {{camp['Lieu']}}
-                </p>
-            </div>
 
-            <div>
+<div class="cartes">
+    {% for camp in g.camps %}
+        <div class="carte-border">
+            <div class="carte">
                 <div class="barre-camp">
+                    <p class="police-titre title-barre">
+                        Lieu
+                    </p>
+                    <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
                     <p class="police-titre">
+                        {{camp['Lieu']}}
+                    </p>
+                </div>
+
+                <div class="barre-camp-date">
+                    <p class="police-titre title-barre">
                         Date
                     </p>
-                    <img src="" alt="">
-                    
-                </div>
-            </div>
-
-            <div>
-                <div class="barre-camp">
+                    <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
                     <p class="police-titre">
-                        Adresse
+                        {{camp['Date_']}}
                     </p>
-                    <img src="" alt="">
-                    <iframe class="carte-adresse" src="{{camp['adresse']}}" >
+                        
+                </div>
+
+                <div class="barre-camp">
+                    <p class="police-titre title-barre">
+                        Prix
+                    </p>
+                    <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                    <p class="police-titre">
+                        {{camp['Prix']}}
+                    </p>
+                        
+                </div>
+
+                <div class="carte-camp">
+                    <iframe class="carte-adresse" src="{{camp['adresse']}}" width="90%" >
                     </iframe>
+                </div>
+
+                <div class="barre-camp participants">
+                    <p class="police-titre title-barre">
+                        Participants
+                    </p>
+                    <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                    {% if camp['Nombre de participants']%}
+                        <p class="police-titre">
+                            {{camp['Nombre de participants']}}
+                        </p>
+                    {% else %}
+                    <p class="police-titre">
+                        0
+                    </p>
+                    {% endif %}
+                </div>
+
+                <div class="barre-camp participation">
+                    <p class="police-titre title-barre">
+                        Participation au camp
+                    </p>
+
                 </div>
             </div>
         </div>
+                
+                
     {% else %}
         <p>Aucun camp disponible.</p>
     {% endfor %}
+        
+        
+</div>
 {% endblock %}
