@@ -700,7 +700,7 @@ button{
   flex-direction: row;
   justify-content: space-around;
   gap: 0.1%;
-  margin-top: 15%;
+  margin-top: 25%;
 }
 
 .carte-border{
@@ -714,10 +714,11 @@ button{
   padding-top: 0.6%;
   padding-bottom: 0.6%;
   box-shadow: 0.5vw 0.5vw 0.3vw rgb(136, 133, 133);
+  transition: all 0.3 ease;
 }
 
-@media(max-width:800px) {
-  
+.carte-border{
+  cursor: pointer;
 }
 
 .carte{
@@ -728,6 +729,7 @@ button{
   width: 94%;
   height: 26vw;
   border-radius: clamp(10px, 2vw, 30px);
+  transition: all 0.3 ease;
 }
 
 .barre-camp{
@@ -759,9 +761,9 @@ button{
   line-height: 70%;
 }
 
-.barre-camp-date img{
+.barre-camp.date img{
   height: 2vw;
-  margin-left: 0.2vw;
+  margin-left: 0.1vw;
   margin-right: 1vw;
 }
 
@@ -779,15 +781,22 @@ button{
 }
 
 .carte-adresse{
-  width: 90%;
+  width: 105%;
   height: 9vw;
   border-radius: clamp(10px, 2vw, 30px);
-  margin-left: 5%;
+  margin-left: -2.5%;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
 }
 
-.participants, .participation{
+.barre-camp.participants{
+  display: none;
+}
+
+.participation{
+  display: none;
+}
+.barre-camp.prix-2{
   display: none;
 }
 
@@ -797,6 +806,142 @@ button{
   margin-bottom: 0 !important;
   margin-left: 6%;
 }
+
+
+        /*carte cliqué*/
+
+
+.carte-border.cliquée{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00210A;
+  margin-bottom: 5%;
+  width: 42.5vw;
+  border-radius: clamp(10px, 2.5vw, 40px);
+  padding-top: 0.6%;
+  padding-bottom: 0.6%;
+  box-shadow: 0.5vw 0.5vw 0.3vw rgb(136, 133, 133);
+  transition: all 0.3s ease;
+}
+
+.carte-border.cliquée{
+  cursor: pointer;
+}
+
+.carte.cliquée{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  background-color: #34693F;
+  width: 97%;
+  height: 26vw;
+  border-radius: clamp(10px, 2vw, 30px);
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée{
+  display: flex;
+  align-items: center;
+  background-color: #00210A;
+  height: 15%;
+  width: 45%;
+  border-radius: clamp(10px, 2vw, 30px);
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  transition: all 0.3s ease;
+}
+
+.carte-camp.cliquée{
+  width: 45%;
+  transition: all 0.3s ease;
+}
+
+.carte-adresse.cliquée{
+  width: 100%;
+  height: 9vw;
+  border-radius: clamp(10px, 2vw, 30px);
+  margin-top: 3.5%;
+  margin-bottom: 1.5%;
+  margin-left: 0;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée.lieu{
+  margin-top: 5%;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée.prix-1{
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée.prix-2{
+  display: flex;
+  margin-top: 5%;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée.participants{
+  margin-bottom: 6.6%;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée.date{
+  margin-bottom: 5%;
+  transition: all 0.3s ease;
+}
+
+.participation.cliquée{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 9vw;
+  background-color: #00210A;
+  border-radius: clamp(10px, 2vw, 30px);
+  text-decoration:none;
+  transition: all 0.3s ease;
+}
+
+.participation.cliquée p{
+  text-align: center;
+  text-decoration: none !important;
+  font-size: 3.1vw;
+  line-height: normal;
+  margin-left: 0;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée p:not(.title-barre){
+  font-size: 2.5vw;
+  color: #ffffff;
+  margin-bottom: 0 !important;
+  line-height: 70%;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.cliquée img{
+  height: 2vw;
+  margin-left: 0.5vw;
+  margin-right: 1vw;
+  transition: all 0.3s ease;
+}
+
+.barre-camp.date.cliquée img{
+  height: 2vw;
+  margin-left: 0.1vw;
+  margin-right: 1vw;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
 
 /*footer*/
 

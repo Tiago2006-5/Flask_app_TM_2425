@@ -17,7 +17,7 @@ Connexion
     {% for camp in g.camps %}
         <div class="carte-border">
             <div class="carte">
-                <div class="barre-camp">
+                <div class="barre-camp lieu">
                     <p class="police-titre title-barre">
                         Lieu
                     </p>
@@ -27,18 +27,18 @@ Connexion
                     </p>
                 </div>
 
-                <div class="barre-camp-date">
+                <div class="barre-camp date">
                     <p class="police-titre title-barre">
                         Date
                     </p>
                     <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
-                    <p class="police-titre">
+                    <p class="police-titre data-date">
                         {{camp['Date_']}}
                     </p>
                         
                 </div>
 
-                <div class="barre-camp">
+                <div class="barre-camp prix-1">
                     <p class="police-titre title-barre">
                         Prix
                     </p>
@@ -52,6 +52,17 @@ Connexion
                 <div class="carte-camp">
                     <iframe class="carte-adresse" src="{{camp['adresse']}}" width="90%" >
                     </iframe>
+                </div>
+
+                <div class="barre-camp prix-2">
+                    <p class="police-titre title-barre">
+                        Prix
+                    </p>
+                    <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                    <p class="police-titre">
+                        {{camp['Prix']}}
+                    </p>
+                        
                 </div>
 
                 <div class="barre-camp participants">
@@ -70,12 +81,11 @@ Connexion
                     {% endif %}
                 </div>
 
-                <div class="barre-camp participation">
+                <a class="participation" href="/">
                     <p class="police-titre title-barre">
                         Participation au camp
                     </p>
-
-                </div>
+                </a>
             </div>
         </div>
                 
