@@ -5,15 +5,31 @@
 {% endblock %}
 
 {% block content %}
-<div class="content-profile">
-  <div>
-    <div class="content-profile-title">
-      <h2>Profil de l'utilisateur connecté</h2>
+<div class="content-user">
+  <img id="forme-user" src="{{url_for('static', filename='imgs/forme-page-user.svg')}}" alt="forme-page-user">
+  <div id="menu-user">
+      <h2 id="title-user" class="police-titre">Mes enfants</h2>
+
+      <div id="enfants">
+        <a href="">
+          {% if enfants%}
+            <a href="{{ url_for('inscr.enfant') }}">
+              <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/plus.svg')}}" alt="bouton pour ajouter un enfant">
+            </a>
+          {% else %}
+            <a href="{{ url_for('inscr.enfant') }}">
+              <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/bouton-ajouter-enfant.svg')}}" alt="bouton pour ajouter un enfant">
+            </a>
+          {% endif %}
+          </a>
+      </div>
+
+    <div id="log-out-user">
+        <a href="{{ url_for('auth.logout') }}">
+            <img src="{{url_for('static', filename='imgs/symbole-log-out.svg')}}" alt="symbole de déconnexion">
+            <p class="log-out-texte police-titre">Déconnexion</p>
+        </a>
     </div>
-    <ul>
-      <li>Nom d'utilisateur: {{g.user.Email}}</li>
-      <li>Mot de passe: {{g.user.Mot_de_passe}}</li>
-    </ul>
   </div>
 </div>  
 {% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block navbar_title %}
+  Compte
+{% endblock %}
+
+{% block content %}
+<div class="content-inscr">
+  <img id="forme-inscr" src="{{url_for('static', filename='imgs/forme-page-inscription.svg')}}" alt="forme-page-inscription">
+  <div id="menu-inscr">
+    <h2 id="title-inscr" class="police-titre">Mes enfants</h2>
+    <div id="formulaire-inscr-enfant-border">
+
+        <div id="formulaire-inscr-enfant">
+            <form method="post" class="inscr-enfant">
+                <h3 class="inscription-form-title-1 police-titre">Informations générales sur l'enfant</h3>
+                <h4 class="inscription-form-title-2 police-titre">Créez un profil pour votre enfant</h4>
+
+                <div id="info-enfant">
+                  <input name="prenom" id="prenom" class="police-titre" placeholder="Prénom" required>
+
+                  <input name="nom" id="nom" class="police-titre" placeholder="Nom" required>
+
+                  <input type="date" name="date-de-naissance" id="password" class="police-titre" placeholder="Date de naissane" required>
+
+                  <label class="police-titre" for="masculin">Sexe:</label>
+
+                  <label class="police-titre" for="masculin">Garçon:</label>
+                  <input type="radio" id="masculin" class="police-titre" name="sexe" value="Garçon" required>
+
+                  <label class="police-titre" for="feminin">Fille:</label>
+                  <input type="radio" id="feminin" class="police-titre" name="sexe" value="Fille" required>
+
+                  <input type="text" name="assurance" id="assurance" class="police-titre" placeholder="Assurance" required>
+
+                  <input type="text" name="assure" id="assure" class="police-titre" placeholder="N° d'assuré(e)s" required>
+                </div>
+
+
+                <div id="sante">
+                  <h4 class="inscription-form-title-2 police-titre">Santé</h4>
+
+
+                  <div id="cardiaque">
+                    <label class="police-titre" for="cardiaque">Problèmes cardiaques:</label>
+
+                    <label class="police-titre" for="cardiaque">oui</label>
+                    <input type="radio" name="cardiaque" id="case-cardiaque" value="Problèmes cardiaques" required>
+
+                    <label class="police-titre" for="cardiaque">non</label>
+                    <input type="radio" name="cardiaque" id="case-cardiaque-non" value="" required>
+
+                    <input type="text" name="cardiaque-info" id="cardiaque-info" class="police-titre" placeholder="Informations importantes ?" >
+                  </div>
+
+
+                  <div id="respiratoire">
+                    <label class="police-titre" for="respiratoire">Problèmes respiratoires:</label>
+
+                    <label class="police-titre" for="respiratoire">oui</label>
+                    <input type="radio" name="respiratoire" id="case-respiratoire" value="Problèmes respiratoires" required>
+
+                    <label class="police-titre" for="respiratoire">non</label>
+                    <input type="radio" name="respiratoire" id="case-respiratoire-non" value="" required>
+
+                    <input type="text" name="respiratoire-info" id="respiratoire-info" class="police-titre" placeholder="Informations importantes ?" >
+                  </div>
+
+
+                  <div id="medicament">
+                    <label class="police-titre" for="medicament">Produits/médicaments à prendre:</label>
+
+                    <label class="police-titre" for="medicament">oui</label>
+                    <input type="radio" name="medicament" id="case-medicament" value="médicaments" required>
+
+                    <label class="police-titre" for="medicament">non</label>
+                    <input type="radio" name="medicament" id="case-medicament-non" value="" required>
+
+                    <input type="text" name="medicament-info" id="medicament-info" class="police-titre" placeholder="Informations importantes ?" >
+                  </div>
+
+
+                  <div id="alimentaire">
+                    <label class="police-titre" for="alimentaire">Restrictions alimentaires:</label>
+
+                  <label class="police-titre" for="alimentaire">oui</label>
+                  <input type="radio" name="alimentaire" id="case-alimentaire" required>
+
+                  <label class="police-titre" for="alimentaire">non</label>
+                  <input type="radio" name="alimentaire" id="case-alimentaire-non" required>
+                  <input type="text" name="alimentaire-info" id="alimentaire-info" class="police-titre" placeholder="Informations importantes ?" >
+                  </div>
+              </div>
+
+              <div id="verification">
+                <h4 class="inscription-form-title-2 police-titre">Vérifications</h4>
+
+                <div id="condition">
+                  <label class="police-titre" for="verification">En cochant cette case, je confirme avoir pris connaissance et approuvé les Conditions Générales qui s'appliquent au(x) stage(s)</label>
+                <input type="checkbox" name="condition" id="condition" required>
+                </div>
+                <input type="submit" id="creer" class="police-titre" value="Créer">
+
+              </div>
+              </form>
+        </div>
+
+    </div>
+    
+      
+
+    
+  </div>
+</div>  
+{% endblock %}

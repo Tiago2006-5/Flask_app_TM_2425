@@ -137,7 +137,7 @@ button{
   color: #ffffff;
   width: 100vw;
   margin-top: 20%;
-  right: -20%;
+  right: -21%;
   user-select: none;
 }
 
@@ -150,7 +150,7 @@ button{
 
 .navbar-nav{
   display: flex;
-  margin-left: clamp(75px,22.5vw,375px);
+  margin-left: clamp(75px,25vw,475px);
   margin-top: 1.5%;
   gap: 10%;
 }
@@ -280,7 +280,6 @@ button{
   margin-left: 70%;
   bottom: 12%;
   width: 20%;
-  padding: 10px;
   background-color:#00210A;
   border: none;
   border-radius: 10px;
@@ -469,12 +468,158 @@ button{
   gap: 2vh;
 }
 
+/*content user*/
+.content-user{
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+  margin-bottom: 50%;
+  height: 100%;
+}
+
+#forme-user{
+  position: absolute;
+  transform: scale(1.1);
+  width: 100%;
+}
+
+#menu-user{
+  width: 100%;
+  z-index: 2;
+}
+
+#title-user{
+  margin-top: 1vw;
+  margin-bottom: 3%;
+  font-size: clamp(13px, 5vw, 90px);
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#enfants{
+  width: 100%;
+  height: 180%;
+  margin-top: 5%;
+  margin-left: 5%;
+
+}
+#bouton-ajouter-enfant{
+  width: 25%;
+}
+
+#log-out-user{
+  justify-self: flex-end;
+  margin-right: 5vw;
+}
+
+#log-out-user a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#log-out-user img{
+  width: 5vw;
+}
+
+#log-out-user p{
+  margin-bottom: 0 !important;
+  color: #ffffff;
+  font-size: clamp(14px, 3vw, 90px);
+}
+
+/*content inscription enfant*/
+.content-inscr{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+  margin-bottom: 100%;
+  height: 100%;
+}
+
+#forme-inscr{
+  position: absolute;
+  transform: scale(1.1);
+  width: 100%;
+}
+
+#menu-inscr{
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-inscr{
+  margin-top: 1vw;
+  margin-bottom: 3%;
+  font-size: clamp(13px, 5vw, 90px);
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#formulaire-inscr-enfant-border{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #34693F;
+  width: 90%;
+  height: 100%;
+  border-radius: 30px;
+  padding-top: 1.2vw;
+  padding-bottom: 1.2vw;
+}
+
+#formulaire-inscr-enfant{
+  display: flex;
+  justify-content: center;
+  background-color: #D9D9D9;
+  border-radius: 15px;
+  width: 97%;
+  height: 97%;
+}
+
+.inscription-form-title-1{
+  margin-top: 4%;
+  color: black;
+  font-size: 4vw;
+}
+
+#cardiaque-info{
+  display: none;
+}
+
+#respiratoire-info{
+  display: none;
+}
+
+#medicament-info{
+  display: none;
+}
+
+#alimentaire-info{
+  display: none;
+}
+
+.inscr-enfant{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* content admin */
 
 #content-admin{
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 25%;
   margin-bottom: 30%;
   height: 100%;
 }
@@ -482,6 +627,7 @@ button{
 #forme-admin{
   position: absolute;
   transform: scale(1.1);
+  width: 100%;
 }
 
 #menu-admin{
@@ -556,7 +702,7 @@ button{
 #content-publish{
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 25%;
   margin-bottom: 10%;
 }
 
@@ -564,6 +710,7 @@ button{
   z-index: -1;
   position: absolute;
   transform: scale(1.1);
+  width: 100%;
 }
 
 #menu-publish{

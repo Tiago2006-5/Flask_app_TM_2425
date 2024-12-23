@@ -41,3 +41,28 @@ participation_btn.forEach(bouton => {
     bouton.addEventListener('mouseout',normal);
 
 });
+
+const toggleFields = [
+  { radioYes: 'case-cardiaque', radioNo: 'case-cardiaque-non', textField: 'cardiaque-info' },
+  { radioYes: 'case-respiratoire', radioNo: 'case-respiratoire-non', textField: 'respiratoire-info' },
+  { radioYes: 'case-medicament', radioNo: 'case-medicament-non', textField: 'medicament-info' },
+  { radioYes: 'case-alimentaire', radioNo: 'case-alimentaire-non', textField: 'alimentaire-info' },
+];
+
+toggleFields.forEach(({ radioYes, radioNo, textField }) => {
+  const yesButton = document.getElementById(radioYes);
+  const noButton = document.getElementById(radioNo);
+  const field = document.getElementById(textField);
+
+  yesButton.addEventListener('change', () => {
+    if (yesButton.checked) {
+      field.style.display = 'block';
+    }
+  });
+
+  noButton.addEventListener('change', () => {
+    if (noButton.checked) {
+      field.style.display = 'none';
+    }
+  });
+});
