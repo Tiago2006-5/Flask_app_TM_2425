@@ -41,28 +41,27 @@ participation_btn.forEach(bouton => {
     bouton.addEventListener('mouseout',normal);
 
 });
+const infos = document.querySelectorAll('.info');
 
-const toggleFields = [
-  { radioYes: 'case-cardiaque', radioNo: 'case-cardiaque-non', textField: 'cardiaque-info' },
-  { radioYes: 'case-respiratoire', radioNo: 'case-respiratoire-non', textField: 'respiratoire-info' },
-  { radioYes: 'case-medicament', radioNo: 'case-medicament-non', textField: 'medicament-info' },
-  { radioYes: 'case-alimentaire', radioNo: 'case-alimentaire-non', textField: 'alimentaire-info' },
-];
+infos.forEach((infoField) => {
+  // Trouve les boutons radio associés (dans le même conteneur)
+  const questionContainer = infoField.closest('.question-container');
+  const radioOui = questionContainer.querySelector('.question-oui');
+  const radioNon = questionContainer.querySelector('.question-non');
 
-toggleFields.forEach(({ radioYes, radioNo, textField }) => {
-  const yesButton = document.getElementById(radioYes);
-  const noButton = document.getElementById(radioNo);
-  const field = document.getElementById(textField);
-
-  yesButton.addEventListener('change', () => {
-    if (yesButton.checked) {
-      field.style.display = 'block';
+  // Affiche le champ conditionnel si "oui" est coché
+  radioOui.addEventListener('change', () => {
+    if (radioOui.checked) {
+      console.log('Oui coché');
+      infoField.style.display = 'block';
     }
   });
 
-  noButton.addEventListener('change', () => {
-    if (noButton.checked) {
-      field.style.display = 'none';
+  // Masque le champ conditionnel si "non" est coché
+  radioNon.addEventListener('change', () => {
+    if (radioNon.checked) {
+      console.log('Non coché');
+      infoField.style.display = 'none';
     }
   });
 });

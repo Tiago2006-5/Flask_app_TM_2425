@@ -17,90 +17,94 @@
                 <h4 class="inscription-form-title-2 police-titre">Créez un profil pour votre enfant</h4>
 
                 <div id="info-enfant">
-                  <input name="prenom" id="prenom" class="police-titre" placeholder="Prénom" required>
+                  <input name="prenom" class="prenom form" class="police-titre" placeholder="Prénom" required>
 
-                  <input name="nom" id="nom" class="police-titre" placeholder="Nom" required>
+                  <input name="nom" class="nom form" class="police-titre" placeholder="Nom" required>
 
-                  <input type="date" name="date-de-naissance" id="password" class="police-titre" placeholder="Date de naissane" required>
+                  <input type="date" name="date-de-naissance" class="date-de-naissance form" class="police-titre" placeholder="Date de naissane" required>
 
-                  <label class="police-titre" for="masculin">Sexe:</label>
+                  <div id="sexe-box">
+                    <label class="police-titre inscr-text sexe" for="masculin">Sexe:</label>
 
-                  <label class="police-titre" for="masculin">Garçon:</label>
-                  <input type="radio" id="masculin" class="police-titre" name="sexe" value="Garçon" required>
+                    <label class="police-titre inscr-text garcon-fille" for="masculin">Garçon:</label>
+                    <input type="radio" id="masculin" class="police-titre check" name="sexe" value="Garçon" required>
 
-                  <label class="police-titre" for="feminin">Fille:</label>
-                  <input type="radio" id="feminin" class="police-titre" name="sexe" value="Fille" required>
+                    <label class="police-titre inscr-text garcon-fille" for="feminin">Fille:</label>
+                    <input type="radio" id="feminin" class="police-titre check" name="sexe" value="Fille" required>
+                    </div>
 
-                  <input type="text" name="assurance" id="assurance" class="police-titre" placeholder="Assurance" required>
+                    <input type="text" name="assurance" class="assurance form" class="police-titre" placeholder="Assurance" required>
 
-                  <input type="text" name="assure" id="assure" class="police-titre" placeholder="N° d'assuré(e)s" required>
-                </div>
+                    <input type="text" name="assure" class="assure form" class="police-titre" placeholder="N° d'assuré(e)s" required>
+                  </div>
 
 
                 <div id="sante">
                   <h4 class="inscription-form-title-2 police-titre">Santé</h4>
 
+                  <div id="sante-questionnaire">
+                    <div class="question-container">
+                      <label class="police-titre inscr-text question-text" for="cardiaque">Problèmes cardiaques:</label>
 
-                  <div id="cardiaque">
-                    <label class="police-titre" for="cardiaque">Problèmes cardiaques:</label>
+                      <label class="police-titre inscr-text" for="cardiaque">oui</label>
+                      <input type="radio" name="cardiaque" class="question-oui check" value="Problèmes cardiaques" required>
 
-                    <label class="police-titre" for="cardiaque">oui</label>
-                    <input type="radio" name="cardiaque" id="case-cardiaque" value="Problèmes cardiaques" required>
+                      <label class="police-titre inscr-text" for="cardiaque">non</label>
+                      <input type="radio" name="cardiaque" class="question-non check" value="" required>
 
-                    <label class="police-titre" for="cardiaque">non</label>
-                    <input type="radio" name="cardiaque" id="case-cardiaque-non" value="" required>
-
-                    <input type="text" name="cardiaque-info" id="cardiaque-info" class="police-titre" placeholder="Informations importantes ?" >
-                  </div>
-
-
-                  <div id="respiratoire">
-                    <label class="police-titre" for="respiratoire">Problèmes respiratoires:</label>
-
-                    <label class="police-titre" for="respiratoire">oui</label>
-                    <input type="radio" name="respiratoire" id="case-respiratoire" value="Problèmes respiratoires" required>
-
-                    <label class="police-titre" for="respiratoire">non</label>
-                    <input type="radio" name="respiratoire" id="case-respiratoire-non" value="" required>
-
-                    <input type="text" name="respiratoire-info" id="respiratoire-info" class="police-titre" placeholder="Informations importantes ?" >
-                  </div>
+                      <input type="text" name="cardiaque-info"  class="police-titre info" placeholder="Informations importantes ?" >
+                    </div>
 
 
-                  <div id="medicament">
-                    <label class="police-titre" for="medicament">Produits/médicaments à prendre:</label>
+                    <div class="question-container">
+                      <label class="police-titre inscr-text question-text" for="respiratoire">Problèmes respiratoires:</label>
 
-                    <label class="police-titre" for="medicament">oui</label>
-                    <input type="radio" name="medicament" id="case-medicament" value="médicaments" required>
+                      <label class="police-titre inscr-text" for="respiratoire">oui</label>
+                      <input type="radio" name="respiratoire" class="question-oui check" value="Problèmes respiratoires" required>
 
-                    <label class="police-titre" for="medicament">non</label>
-                    <input type="radio" name="medicament" id="case-medicament-non" value="" required>
+                      <label class="police-titre inscr-text" for="respiratoire">non</label>
+                      <input type="radio" name="respiratoire" class="question-non check" value="" required>
 
-                    <input type="text" name="medicament-info" id="medicament-info" class="police-titre" placeholder="Informations importantes ?" >
-                  </div>
+                      <input type="text" name="respiratoire-info"  class="police-titre info" placeholder="Informations importantes ?" >
+                    </div>
 
 
-                  <div id="alimentaire">
-                    <label class="police-titre" for="alimentaire">Restrictions alimentaires:</label>
+                    <div class="question-container">
+                      <label class="police-titre inscr-text question-text" for="medicament">Produits/médicaments à prendre:</label>
 
-                  <label class="police-titre" for="alimentaire">oui</label>
-                  <input type="radio" name="alimentaire" id="case-alimentaire" required>
+                      <label class="police-titre inscr-text" for="medicament">oui</label>
+                      <input type="radio" name="medicament" class="question-oui check" value="médicaments" required>
 
-                  <label class="police-titre" for="alimentaire">non</label>
-                  <input type="radio" name="alimentaire" id="case-alimentaire-non" required>
-                  <input type="text" name="alimentaire-info" id="alimentaire-info" class="police-titre" placeholder="Informations importantes ?" >
+                      <label class="police-titre inscr-text" for="medicament">non</label>
+                      <input type="radio" name="medicament" class="question-non check" value="" required>
+
+                      <input type="text" name="medicament-info" class="police-titre info" placeholder="Informations importantes ?" >
+                    </div>
+
+
+                    <div class="question-container">
+                      <label class="police-titre inscr-text question-text" for="alimentaire">Restrictions alimentaires:</label>
+
+                    <label class="police-titre inscr-text" for="alimentaire">oui</label>
+                    <input type="radio" name="alimentaire" class="question-oui check" required>
+
+                    <label class="police-titre inscr-text" for="alimentaire">non</label>
+                    <input type="radio" name="alimentaire" class="question-non check" required>
+                    <input type="text" name="alimentaire-info" class="police-titre info" placeholder="Informations importantes ?" >
+                    </div>
                   </div>
               </div>
 
               <div id="verification">
-                <h4 class="inscription-form-title-2 police-titre">Vérifications</h4>
+                <h4 class="inscription-form-title-2 police-titre verification-text">Vérification</h4>
 
                 <div id="condition">
-                  <label class="police-titre" for="verification">En cochant cette case, je confirme avoir pris connaissance et approuvé les Conditions Générales qui s'appliquent au(x) stage(s)</label>
-                <input type="checkbox" name="condition" id="condition" required>
-                </div>
+                  <div id="condition-text">
+                    <label class="police-titre inscr-text" for="verification">En cochant cette case, je confirme avoir pris connaissance et approuvé les Conditions Générales qui s'appliquent au(x) stage(s)</label>
+                    <input type="checkbox" name="condition" id="condition" class="check" required>
+                  </div>
                 <input type="submit" id="creer" class="police-titre" value="Créer">
-
+                </div>
               </div>
               </form>
         </div>

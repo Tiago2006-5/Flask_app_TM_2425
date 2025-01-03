@@ -10,9 +10,26 @@
   <div id="menu-user">
       <h2 id="title-user" class="police-titre">Mes enfants</h2>
 
-      <div id="enfants">
-        <a href="">
+      <div id="menu-enfants">
           {% if enfants%}
+              {% for personne in personnes %}
+                <div class="carte-enfant">
+                  <div class="initial">
+                    <p class="police-titre lettre">{{personne['Prenom'][0].upper()}}</p>
+                  </div>
+
+                  <div class="nom-enfant">
+                    <p class="police-titre">{{personne['Prenom']}} {{personne['Nom']}}</p>
+                  </div>
+
+                  <div class="modification-enfant">
+                    <a href="{{ url_for('inscr.enfant') }}" class="police-titre">
+                      Modifier le profil de votre enfant
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </ul>
             <a href="{{ url_for('inscr.enfant') }}">
               <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/plus.svg')}}" alt="bouton pour ajouter un enfant">
             </a>
@@ -21,7 +38,6 @@
               <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/bouton-ajouter-enfant.svg')}}" alt="bouton pour ajouter un enfant">
             </a>
           {% endif %}
-          </a>
       </div>
 
     <div id="log-out-user">
