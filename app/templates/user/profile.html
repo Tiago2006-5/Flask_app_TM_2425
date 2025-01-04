@@ -14,7 +14,7 @@
           {% if enfants%}
               {% for personne in personnes %}
                 <div class="carte-enfant">
-                  <div class="initial">
+                  <div class="initiale">
                     <p class="police-titre lettre">{{personne['Prenom'][0].upper()}}</p>
                   </div>
 
@@ -23,7 +23,7 @@
                   </div>
 
                   <div class="modification-enfant">
-                    <a href="{{ url_for('inscr.enfant') }}" class="police-titre">
+                    <a href="{{ url_for('user.modifier_enfant', Id_personne = personne['Id_personne']) }}" class="police-titre">
                       Modifier le profil de votre enfant
                     </a>
                   </div>

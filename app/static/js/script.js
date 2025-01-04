@@ -65,3 +65,19 @@ infos.forEach((infoField) => {
     }
   });
 });
+
+const cartes_enfant = document.querySelectorAll('.carte-enfant');
+
+cartes_enfant.forEach((carte_enfant) => {
+  carte_enfant.addEventListener('click', () => {
+    carte_enfant.classList.toggle('cliquée');
+    
+    const initiale = carte_enfant.querySelector('.initiale');
+    const nom_enfant = carte_enfant.querySelector('.nom-enfant');
+    const modification_enfant = carte_enfant.querySelector('.modification-enfant');
+    
+    initiale.classList.toggle('cliquée');
+    nom_enfant.classList.toggle('cliquée');
+    modification_enfant.classList.toggle('cliquée');
+  });
+});
