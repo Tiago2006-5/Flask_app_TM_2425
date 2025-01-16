@@ -6,12 +6,18 @@ Johan Jobin, Collège du Sud.
 ## Description
 The current directory is a basic Flask application template connected to an SQLite database, serving as a starting point for 3rd-year students at Collège du Sud as part of their Maturity Project. With pedagogical objectives in mind, and to provide a fundamental grasp of web application architecture, the project intentionally omits any Object-Relational Mapping (ORM) or data validation modules.
 
+## requirements
+   -**Python 3.10**
+   Ensure that Python 3.10 is installed on your system. Check the version with:
+   ```bash
+   python --version
+   ```
 ## How to run the project
 1. **Create a virtual environment**
    - Using the command line:
 
       ```bash
-      python -m venv <VIRTUAL-ENVIRONMENT-NAME>
+      python3.10 -m venv <VIRTUAL-ENVIRONMENT-NAME>
       ```  
 
    - Using Visual Studio Code:
@@ -66,7 +72,7 @@ The current directory is a basic Flask application template connected to an SQLi
     - Using the command line:
    
       ```bash
-      python -m flask run --debug
+      python3.10 -m flask run --debug
       ```
 
     - Using Visual Studio Code:
