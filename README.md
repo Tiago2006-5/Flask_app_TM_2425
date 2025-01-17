@@ -8,7 +8,7 @@ The current directory is a basic Flask application template connected to an SQLi
 
 ## requirements
    -**Python 3.10**
-   Ensure that Python 3.10 is installed on your system. Check the version with:
+   Ensure that Python 3.10 is installed on your system. Check the version with :
    ```bash
    python --version
    ```
