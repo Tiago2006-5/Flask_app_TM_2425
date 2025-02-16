@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Camps
+{% endblock %}
+{%block navbar_title %}
+Camps
+{% endblock %}
+{%block titre_barre%}
+Connexion
+{% endblock %}
+
+
+{% block content %}
+
+<div id="carte-exterieure-participer">
+    <div id="carte-interieure-participer">
+        <div id="info-camp">
+            <div class="champ">
+                <p class="police-titre title-barre">Lieu</p>
+                <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                <p class="police-titre data-date">{{camp['Lieu']}}</p>
+            </div>
+
+            <div class="champ">
+                <p class="police-titre title-barre">Date</p>
+                <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                <p class="police-titre data-date">{{camp['Date']}}</p>
+            </div>
+
+            <div class="champ">
+                <p class="police-titre title-barre">Prix</p>
+                <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                <p class="police-titre data-date">{{camp['Prix']}}</p>
+            </div>
+
+            <div class="champ">
+                <p class="police-titre title-barre">participants</p>
+                <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
+                <p class="police-titre data-date">{{nb[camp['Id_camp']]}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

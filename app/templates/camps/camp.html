@@ -70,9 +70,9 @@ Connexion
                         Participants
                     </p>
                     <img src="{{url_for('static', filename='imgs/barre-camps.svg')}}" alt="barre qui sépare le champ de gauche et celui de droite">
-                    {% if camp['Nombre de participants']%}
+                    {% if g.nb[camp['Id_camp']] %}
                         <p class="police-titre">
-                            {{camp['Nombre de participants']}}
+                            {{g.nb[camp['Id_camp']]}}
                         </p>
                     {% else %}
                     <p class="police-titre">
@@ -80,12 +80,19 @@ Connexion
                     </p>
                     {% endif %}
                 </div>
-
-                <a class="participation" href="/">
-                    <p class="police-titre title-barre">
-                        Participation au camp
-                    </p>
-                </a>
+                {% if g.user%}
+                    <a class="participation" href="{{ url_for('camp.participer', Id_parent = g.user['Id_parent'], Id_camp = camp['Id_camp'])}}">
+                        <p class="police-titre title-barre">
+                            Participer au camp
+                        </p>
+                    </a>
+                {% else %}
+                    <a class="participation" href="{{ url_for('auth.login')}}">
+                        <p class="police-titre title-barre">
+                            Participer au camp
+                        </p>
+                    </a>
+                {% endif %}
             </div>
         </div>
                 
