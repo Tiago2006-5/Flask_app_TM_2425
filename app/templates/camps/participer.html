@@ -40,6 +40,18 @@ Connexion
                 <p class="police-titre data-date">{{nb[camp['Id_camp']]}}</p>
             </div>
         </div>
+        <div id="addresse-camp">
+            <iframe class="carte-adresse" src="{{camp['adresse']}}" width="90%" ></iframe>
+        </div>
+        <div id="participants">
+            {% for enfant in enfants%}
+                <label for="">
+                    <input type="checkbox" name="enfants[]" id="{{enfant['Id_enfant']}}">
+                    {{enfants_infos[enfant['Id_personne']]['Prenom']}} {{enfants_infos[enfant['Id_personne']]['Nom']}}
+                </label>
+            {% endfor %}
+            <button type="submit">inscrire</button>
+        </div>
     </div>
 </div>
 {% endblock %}

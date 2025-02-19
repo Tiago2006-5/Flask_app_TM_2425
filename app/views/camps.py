@@ -26,12 +26,12 @@ def participer(Id_parent, Id_camp):
     db = get_db()
     enfants = db.execute('SELECT * FROM Enfants WHERE Id_parent = ?',(Id_parent,)).fetchall()
     if not enfants:
-        return redirect(url_for('/user/profile'))
-    enfants_infos = []
+        return redirect(url_for('user.show_profile'))
+    enfants_infos = {}
     for enfant in enfants:
         enfant_info = db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(enfant['Id_personne'],)).fetchone()
         if enfant_info:
-            enfants_infos.append(enfant_info)
+            enfants_infos[enfant['Id_personne']] = dict(enfant_info)
     camp = db.execute('Select * From Camps Where Id_camp = ?',(Id_camp,),).fetchone()
 
     nb_participants = {}
@@ -39,7 +39,7 @@ def participer(Id_parent, Id_camp):
         nb_participants[row['Id_camp']] = row[1]
 
     close_db()
-    close_db()
+    print(enfants_infos)
     return render_template('camps/participer.html', camp = camp, enfants = enfants, enfants_infos = enfants_infos, nb = nb_participants)
 
 
