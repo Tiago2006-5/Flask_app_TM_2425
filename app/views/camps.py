@@ -23,24 +23,34 @@ def camps():
 @camps_bp.route('/participer/<int:Id_parent>/<int:Id_camp>', methods=('GET', 'POST'))
 @login_required
 def participer(Id_parent, Id_camp):
-    db = get_db()
-    enfants = db.execute('SELECT * FROM Enfants WHERE Id_parent = ?',(Id_parent,)).fetchall()
-    if not enfants:
-        return redirect(url_for('user.show_profile'))
-    enfants_infos = {}
-    for enfant in enfants:
-        enfant_info = db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(enfant['Id_personne'],)).fetchone()
-        if enfant_info:
-            enfants_infos[enfant['Id_personne']] = dict(enfant_info)
-    camp = db.execute('Select * From Camps Where Id_camp = ?',(Id_camp,),).fetchone()
+        if request.method == 'POST':
+            enfants_coches = request.form.getlist('enfant')
+            db = get_db()
+            for enfant in enfants_coches:
+                db.execute('INSERT INTO Inscriptions (Id_enfant, Id_camp) VALUES (?, ?)',(enfant, Id_camp))
+                db.commit()
+            close_db()
+            return redirect(url_for('camp.camps'))
 
-    nb_participants = {}
-    for row in db.execute("SELECT Id_camp, COUNT(*) FROM Inscriptions GROUP BY Id_camp"):
-        nb_participants[row['Id_camp']] = row[1]
+        else:
+            db = get_db()
+            enfants = db.execute('SELECT * FROM Enfants WHERE Id_parent = ?',(Id_parent,)).fetchall()
+            if not enfants:
+                return redirect(url_for('user.show_profile'))
+            enfants_infos = {}
+            for enfant in enfants:
+                enfant_info = db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(enfant['Id_personne'],)).fetchone()
+                if enfant_info:
+                    enfants_infos[enfant['Id_personne']] = dict(enfant_info)
+            camp = db.execute('Select * From Camps Where Id_camp = ?',(Id_camp,),).fetchone()
 
-    close_db()
-    print(enfants_infos)
-    return render_template('camps/participer.html', camp = camp, enfants = enfants, enfants_infos = enfants_infos, nb = nb_participants)
+            nb_participants = {}
+            for row in db.execute("SELECT Id_camp, COUNT(*) FROM Inscriptions GROUP BY Id_camp"):
+                nb_participants[row['Id_camp']] = row[1]
+
+            close_db()
+            print(enfants_infos)
+            return render_template('camps/participer.html', camp = camp, enfants = enfants, enfants_infos = enfants_infos, nb = nb_participants)
 
 
 

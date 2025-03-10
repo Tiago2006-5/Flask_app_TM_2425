@@ -1310,10 +1310,294 @@ button{
 }
 
 
+/* participation */
 
+#carte-exterieure-participer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00210A;
+  width: 45vw;
+  border-radius: 1.7vw;
+  padding: 0.8vw;
+}
 
+#carte-interieure-participer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #34693F;
+  border-radius: 1vw;
+  width: 43.47vw;
+  
+}
 
+#info-camp{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 5%;
+}
 
+#bouton-retour-blanc{
+  display: flex;
+  width: 80vw;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.champ{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 17vw;
+  height: 3.5vw;
+  background-color: #00210A;
+  border-radius: 5vw;
+  margin-top: 2.5%;
+}
+
+#content-participer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+  margin-bottom: 5%;
+}
+
+.champ p{
+  color: white;
+  font-size: 2vw;
+  margin-bottom: 0.01vw;
+}
+
+.barre-participer{
+  margin: 0 0.5vw;
+}
+
+.date-participer{
+  width: 65%;
+  line-height: 90%;
+}
+
+.carte-adresse-participer{
+  width: 38.6vw;
+  height: 9vw;
+  margin-top: 2.5%;
+  border-radius: 2vw;
+}
+
+#participants{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2.5%;
+  margin-bottom: 5%;
+}
+
+#participants .titre-inscrire{
+  font-size: 3vw;
+  margin-right: 70%;
+}
+
+#form-participer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5.5%;
+  width: 90%;
+}
+
+.coche-enfant{
+  display: none;
+}
+
+.profil-participer{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 15vw;
+  height: 3vw;
+  background-color: #00210A;
+  border-radius: 1vw;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.initiale-participer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 5%;
+}
+
+.initiale-participer.cliqué{
+  background-color: #E17909;
+  transition: all 0.5s ease;
+}
+
+.lettreparticiper{
+  font-size: 2vw;
+  color:#00210A !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1vw;
+}
+
+.prenom-participer{
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+  color: white;
+  font-size: 1.5vw;
+  width: 9vw;
+  transition: all 0.5s ease;
+
+}
+
+.prenom-participer.cliqué{
+  color: #E17909;
+  transition: all 0.5s ease;
+}
+
+.button-participer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 5vw;
+  background-color:#00210A;
+  border-radius: 1.5vw;
+  border: none;
+  margin-top: 5%;
+  margin-left: 24vw;
+  cursor: pointer;
+  color: white;
+  font-size: 2.7vw;
+  transition: all 0.5s ease;
+
+}
+
+.button-participer:hover{
+  color: #E17909;
+  transition: all 0.5s ease;
+
+}
+
+/*informations*/
+
+#content-info{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25%;
+  margin-bottom: 10%;
+}
+
+.forme-page{
+  display: flex;
+  width: 100vw;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+#programme-ferme{
+  position: relative;
+}
+
+#haut-de-page-info{
+  position: relative;
+  z-index: 1;
+}
+
+#bouton-programme{
+  display: flex;
+  position: absolute;
+  align-items: center;
+  z-index: 2;
+  top: 17vw;
+  left: 3.5vw;
+  cursor: pointer;
+}
+
+.bouton-d-ouverture-de-texte{
+  width: 2.5vw;
+  transition: all 0.2s ease;
+}
+
+.titre-info{
+  color: #ffffff;
+  font-size: 5.5vw;
+  letter-spacing: 0.1vw;
+  margin-left: 4vw;
+  margin-top: 0.7vw;
+}
+
+.texte-info{
+  color: #ffffff;
+  font-size: 1.5vw;
+  margin-left: 4vw;
+  margin-top: 1.5vw;
+  width: 90%;
+}
+
+#texte-programme{
+  display: none;
+  width: 100vw;
+  background-color: #34693F;
+  margin-top: -1.5vw;
+  transition: opacity 0.5s ease-in-out, height 1s ease-in-out;
+}
+
+.cliqué{
+  display: block;
+  transition: all 1s ease;
+}
+
+#conditions{
+  width: 100vw;
+  background-color: #34693F;
+}
+
+#bouton-conditions{
+  display: flex;
+  align-items: center;
+  background-color: #34693F;
+  cursor: pointer;
+  margin-left: 3.5vw;
+}
+
+#texte-conditions{
+  display: none;
+  margin-top: -1vw;
+  width: 90%;
+  transition: opacity 1s ease-in-out, height 1s ease-in-out;
+}
+
+#bas-de-page-info{
+  position: relative;
+  z-index: 1;
+}
+
+#tarifs2{
+  position: relative;
+  z-index: 2;
+  margin-top: -25vw;
+  width: 35vw;
+  margin-bottom: 5vw;
+}
 
 /*footer*/
 

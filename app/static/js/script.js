@@ -81,3 +81,72 @@ cartes_enfant.forEach((carte_enfant) => {
     modification_enfant.classList.toggle('cliquée');
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Sélectionne toutes les checkboxes
+  const checkboxes = document.querySelectorAll(".coche-enfant");
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", function () {
+      // Récupérer les éléments à modifier
+      const profilParticiper = this.nextElementSibling.querySelector(".profil-participer");
+      const initiale = profilParticiper.querySelector(".initiale-participer");
+      const prenom = profilParticiper.querySelector(".prenom-participer");
+
+      // Ajouter ou retirer la classe "cliqué" en fonction de l'état de la checkbox
+      prenom.classList.toggle("cliqué", this.checked);
+      initiale.classList.toggle("cliqué", this.checked);
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let boutonProgramme = document.getElementById("bouton-programme");
+  let texteProgramme = document.getElementById("texte-programme");
+  let conditions = document.getElementById("conditions");
+
+  boutonProgramme.addEventListener("click", function () {
+      if (texteProgramme.style.display === "none" || texteProgramme.style.display === "") {
+          texteProgramme.style.display = "block";
+          conditions.style.marginTop = "-4.5vw"; // Ajoute le margin-top quand le texte est visible
+      } else {
+          texteProgramme.style.display = "none";
+          conditions.style.marginTop = "0"; // Remet le margin-top à 0 quand le texte est caché
+      }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let boutonconditions = document.getElementById("bouton-conditions");
+  let texteconditions = document.getElementById("texte-conditions");
+
+  boutonconditions.addEventListener("click", function () {
+      texteconditions.style.display = (texteconditions.style.display === "none" || texteconditions.style.display === "") ? "block" : "none";
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let boutonProgramme = document.getElementById("bouton-programme");
+  let texteProgramme = document.getElementById("texte-programme");
+  let conditions = document.getElementById("conditions");
+  let flecheProgramme = document.getElementById("fleche-programme");
+
+  let boutonConditions = document.getElementById("bouton-conditions");
+  let texteConditions = document.getElementById("texte-conditions");
+  let flecheConditions = document.getElementById("fleche-conditions");
+
+  boutonProgramme.addEventListener("click", function () {
+      let isOpen = texteProgramme.style.opacity === "1";
+      texteProgramme.style.opacity = isOpen ? "0" : "1";
+      texteProgramme.style.height = isOpen ? "0" : "auto"; 
+      conditions.style.marginTop = isOpen ? "0" : "-4.5vw";
+      flecheProgramme.style.transform = isOpen ? "rotate(0deg)" : "rotate(90deg)";
+  });
+
+  boutonConditions.addEventListener("click", function () {
+      let isOpen = texteConditions.style.opacity === "1";
+      texteConditions.style.opacity = isOpen ? "0" : "1";
+      texteConditions.style.height = isOpen ? "0" : "auto";
+      flecheConditions.style.transform = isOpen ? "rotate(0deg)" : "rotate(90deg)";
+  });
+});

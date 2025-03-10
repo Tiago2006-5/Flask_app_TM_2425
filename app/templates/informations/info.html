@@ -6,7 +6,67 @@ Informations
 {%block titre_barre%}
 Connexion
 {% endblock %}
-
-
 {% block content %}
+<div id="content-info">
+    <div id="programme">
+        <div id="programme-ferme">
+            <img class="forme-page" id="haut-de-page-info" src="{{url_for('static', filename='imgs/haut_de_page_info.svg')}}" alt="forme décorative en haut de la page" id="haut-de-page-info">
+            <div id="bouton-programme">
+                <img src="{{url_for('static', filename='imgs/bouton_d_ouverture_de_texte.svg')}}" alt="bouton d'ouverture de texte" class="bouton-d-ouverture-de-texte" id="fleche-programme">
+                <p class="police-titre titre-info">Programme</p>
+            </div>
+        </div>
+        <div id="texte-programme">
+            <p class="texte-info">Le stage se déroule du lundi au vendredi de 09h à 16h.
+                Le repas de midi ainsi que deux collations sont compris quotidiennement au programme.
+                Ils participent essentiellement à des ateliers techniques le matin et des tournois sous plusieurs formes divertissantes l’après-midi. Tout au long de la semaine plusieurs lots et prix sont à gagner. Chaque enfant recevra en fin de semaine son ballon et son cadeau de stage !
+                Pour que le programme puisse avoir lieux dans de bonnes conditions chaque enfant devra apporter :</p>
+            <ul class="texte-info">
+                <li>1 paire de chaussures de football, multi-crampons</li>
+                <li>1 paire de chaussures de sport (basket pour la salle)</li>
+                <li>Short, t-shirt, bas, protège-tibia</li>
+                <li>Training (survêtement), K-Way</li>
+                <li>Vêtements chauds de rechange (indispensable) pour l’automne</li>
+                <li>Casquette et crème solaire (indispensable) pour l’été</li>
+                <li>Affaires de douche</li>
+                <li>1 linge de douche</li>
+                <li>Un bon ballon d’entraînement marqué de son nom.</li>
+                <li style="visibility: hidden;"> </li>
+                <li style="visibility: hidden;"> </li>
+            </ul>
+        </div>
+    </div>
+    <div id="conditions">
+        <div id="bouton-conditions">
+            <img src="{{url_for('static', filename='imgs/bouton_d_ouverture_de_texte.svg')}}" alt="bouton d'ouverture de texte" class="bouton-d-ouverture-de-texte" id="fleche-conditions">
+            <p class="police-titre titre-info">Conditions Générales</p>
+        </div>
+        <div id="texte-conditions">
+            <ul class="texte-info">
+                <li>Lors de l’inscription, toutes les informations doivent être notées de façon exacte afin de garantir un suivi de qualité à toutes épreuves.</li>
+                <li>Paiement : La personne qui effectue l’inscription, accepte le paiement avant le début du camps sauf si contre-indication donnée par StarKids.</li>
+                <li>Prise en charge : En plaçant votre enfant dans nos stages, vous acceptez qu’il soit sous notre responsabilité depuis la prise en charge jusqu’au check-out en fin de journée.</li>
+                <li>Respect : Un enfant qui vient à une semaine de stage, se doit par conséquent d’être respectueux de ses camarades, de ses moniteurs et de chaque personne responsable du stage.</li>
+                <li>Confidentialité : Vous acceptez que votre enfant soit pris en photo afin de vous partager un album privé et qu’une ou deux photos soient éventuellement utilisés a des fins publicitaire ( facebook, internet, … ).</li>
+                <li>Assurance : Le participant confirme avoir souscrit une police d’assurance le couvrant pour les dommages corporels dont il pourrait être victime en cas d’accident ou incident au cours de son stage. La responsabilité de StarKids ne pourra être engagée en cas de mauvaise déclaration faite par le participant quant à sa condition physique ou en cas de blessure résultant d’une incapacité, d’une diminution ou de toute autre altération de son état physique.</li>
+                <li>Responsabilité du participant : Le participant est responsable des dommages matériels et corporels qu’il pourrait causer, de son propre fait, au sein de StarKids et s’engage à payer tous les frais inhérents à ces dommages, sur présentation d’une facture ou d’une déclaration écrite.</li>
+                <li>Décharge de responsabilité : Le participant reconnaît être conscient des risques encourus par l’utilisation des installations auxquelles il a accès au sein de StarKids. Il est de la responsabilité de l’enfant de s’informer sur l’utilisation des installations mises à sa disposition : la responsabilité de StarKids ne pourra être engagée en cas de dommages physiques ou matériels, suite à tout accident résultant de l’inobservation des règles de sécurité ou de l’utilisation inappropriée des équipement ou autres installations mises à disposition.</li>
+                <li>Communication : StarKids communique uniquement par email ou par téléphone. StarKids décline toute responsabilité si l’adresse d’email ou le numéro de téléphone n’existent pas, ne sont pas valides ou si pour une raison quelconque les emails n’aboutissent pas. StarKids ne communique pas en papier.</li>
+                <li>Etat de santé : Les parents attestent que la condition physique et l’état de santé de leur enfant lui permettent de pratiquer un sport et que la pratique d’activités physiques ne risque pas d’altérer son état de santé, sa sécurité ou sa condition physique. En cas de doute, le participant devra demander un avis médical, afin de confirmer son aptitude à exercer une activité sportive.</li>
+                <li>Annulation de participation : Le participant désistant à son inscription auprès de StarKids moins de 14 jours avant le premier jour du stage se verra dans l’obligation de payer 50% du prix de son stage. Toute inscription annulée avec un certificat médical à l’appui est gratuite sauf si cela intervient moins de 5 jours avant le début du stage, ce qui engendrera un paiement de 25% du prix du stage au participant.</li>
+                <li>Les divers promotions faites durant l’année ne sont malheureusement pas cumulables entre elles. Néanmoins, une promotion peut se rejoindre à un ou plusieurs parrainages.</li>
+                <li>StarKids est susceptible de modifier ou ajouter des points à ses conditions générales à tout moment. Le client est tenu de s’informer par lui-même d’un éventuel changement.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="tarifs">
+        <img class="forme-page" src="{{url_for('static', filename='imgs/bas_de_page_info.svg')}}" alt="forme décorative en bas de la page" id="bas-de-page-info">
+        <div id="tarifs2">
+            <p class="texte-info">Prix du stage, repas compris : CHF. 300.00</p>
+            <p class="texte-info">Réduction de CHF 20.00 pour chaque enfant de la même famille inscrit à l’un des stages.</p>
+            <p class="texte-info">Il est également possible de parrainer / se faire parrainer par un autre enfant pour bénificier d’un cadeau surprise.</p>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
