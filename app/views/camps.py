@@ -25,12 +25,19 @@ def camps():
 def participer(Id_parent, Id_camp):
         if request.method == 'POST':
             enfants_coches = request.form.getlist('enfant')
-            db = get_db()
-            for enfant in enfants_coches:
-                db.execute('INSERT INTO Inscriptions (Id_enfant, Id_camp) VALUES (?, ?)',(enfant, Id_camp))
-                db.commit()
-            close_db()
-            return redirect(url_for('camp.camps'))
+            number = len(enfants_coches)
+            if number == 0:
+                flash("Vous n'avez pas sélectionné d'enfant")
+                return redirect(url_for('camp.participer', Id_parent = Id_parent, Id_camp = Id_camp))
+            else:
+                db = get_db()
+                for enfant in enfants_coches:
+                    kid = db.execute('SELECT * FROM Inscriptions WHERE Id_enfant = ? AND Id_camp = ?',(enfant, Id_camp)).fetchone()
+                    if kid is None:
+                        db.execute('INSERT INTO Inscriptions (Id_enfant, Id_camp) VALUES (?, ?)',(enfant, Id_camp))
+                        db.commit()
+                close_db()
+                return redirect(url_for('home.merci',nombre = number))
 
         else:
             db = get_db()

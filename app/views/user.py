@@ -17,11 +17,6 @@ def show_profile():
     for enfant in enfants:
         personnes.append(dict(db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(enfant['Id_personne'],)).fetchone()))
     close_db()
- 
-    
-
-
-
 
     # Affichage de la page principale de l'application
     return render_template('user/profile.html', enfants = enfants, personnes = personnes)

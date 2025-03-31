@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Camps
+{% endblock %}
+
+{% block content%}
+<div id="content-merci">
+      <div id="bord-merci">
+        <div id="merci">
+          <img id="logo-Starkids-2-merci" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo de Starkids">
+          <div id="loader"></div>
+            <p class="police-titre text-merci">Enregistrement de {{ nom }}</p>
+        </div>
+      </div>
+</div>
+
+<script>
+    // Redirige l'utilisateur vers la page de profil après 3 secondes
+    document.addEventListener("DOMContentLoaded", function() {
+        // Affiche la roue de chargement
+        document.getElementById("loader").style.display = "block";
+        // Redirige l'utilisateur vers la page de profil après 3 secondes
+        setTimeout(function() {
+            console.log('Redirecting to profile page');
+            window.location.href = "{{ url_for('user.show_profile') }}";
+        }, 3000);
+        
+    });
+
+</script>
+
+{% endblock %}

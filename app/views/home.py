@@ -15,3 +15,15 @@ def landing_page():
 @home_bp.route('/<path:text>', methods=['GET', 'POST'])
 def not_found_error(text):
     return render_template('home/404.html'), 404
+
+@home_bp.route('/remerciements/<int:nombre>', methods=('GET', 'POST'))
+def merci(nombre):
+    return render_template('home/remerciements.html', nombre = nombre)
+
+@home_bp.route('/inscrit/<string:nom>', methods=('GET', 'POST'))
+def inscrit(nom):
+    return render_template('home/inscrit.html', nom = nom)
+
+@home_bp.route('/max_enfant', methods=('GET', 'POST'))
+def max_enfant():
+    return render_template('home/max_enfant.html')

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block navbar_title %}
+Organisation
+{% endblock %}
+
+{%block titre_barre%}
+Connexion
+{% endblock %}
+
+
+{% block content %}
+<div id="content-publish">
+    <img id="forme-publish" src="{{url_for('static', filename='imgs/forme-page-user.svg')}}" alt="forme-page-user">
+    <div id="menu-publish">
+        <h2 id="title-admin" class="police-titre">Mes camps</h2>
+        
+        <div id="Publish-border">
+            <div id="Publish-form">
+                <div id="bouton-retour">
+                    <a href="{{ url_for('camp.camps') }}">
+                        <img id="icone-retour" src="{{url_for('static', filename='imgs/bouton-retour.svg')}}" alt="icone qui retourne à la dernière page visitée">
+                    </a>
+                </div>
+
+                <h3 class="titre-publish-form">Modifier le camp</h3>
+
+                <form method="post">
+                <input type="text" name="Lieu" id="lieu" class="police-titre" placeholder="Lieu" value="{{camp['Lieu']}}" required>
+                <input type="text" name="Adresse" id="adresse" class="police-titre" placeholder="Adresse" value="{{camp['Adresse']}}" required>
+                <div id="publish-form-style">
+                    <input type="text" name="Date" id="date" class="police-titre" placeholder="Date" value="{{camp['Date_']}}" required>
+                    <input type="number" name="Prix" id="prix" class="police-titre" placeholder="Prix" value="{{camp['Prix']}}" required>
+                </div>
+                <input type="submit" id="Modifier" class="police-titre" value="Confirmer">
+                </form>
+
+                <form method="post" action="{{ url_for('admin.supprimer', Id_camp=camp['Id_camp']) }}" style="display: inline;">
+                    <input type="submit" id="Supprimer" class="police-titre" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce camp ?');">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</div>
+{% endblock %}

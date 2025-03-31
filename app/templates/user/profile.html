@@ -11,7 +11,7 @@
       <h2 id="title-user" class="police-titre">Mes enfants</h2>
 
       <div id="menu-enfants">
-          {% if enfants%}
+          {% if personnes%}
               {% for personne in personnes %}
                 <div class="carte-enfant">
                   <div class="initiale">
@@ -30,9 +30,12 @@
                 </div>
               {% endfor %}
             </ul>
-            <a href="{{ url_for('inscr.enfant') }}">
-              <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/plus.svg')}}" alt="bouton pour ajouter un enfant">
-            </a>
+            <p>{{personnes|length}}</p>
+            {% if personnes|length < 12 %}
+              <a href="{{ url_for('inscr.enfant') }}">
+                <img id="bouton-ajouter-enfant-plus" src="{{url_for('static', filename='imgs/plus.svg')}}" alt="bouton pour ajouter un enfant">
+              </a>
+            {% endif %}
           {% else %}
             <a href="{{ url_for('inscr.enfant') }}">
               <img id="bouton-ajouter-enfant" src="{{url_for('static', filename='imgs/bouton-ajouter-enfant.svg')}}" alt="bouton pour ajouter un enfant">

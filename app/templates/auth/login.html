@@ -17,16 +17,16 @@ Connexion
         <input name="email" id="email" class="police-titre" placeholder="Email" required>
         <label for="password"></label>
         <input type="password" name="password" id="password" class="police-titre" placeholder="Mot de passe" required>
-        <input type="submit" id="connexion" class="police-titre" value="Connexion">
+        <ul id="autre">
+          <li class="police-titre" id="inscription">
+            <a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
+          </li>
+          <li class="police-titre" id="oublie">
+            <a id="oublie-2" href="">Mot de passe oublié ?</a>
+          </li>
+        </ul>
+        <button type="submit" id="connexion" class="police-titre">Connexion</button>
       </form>
-      <ul id="autre">
-        <li class="police-titre" id="inscription">
-          <a id="inscription-2" href="{{ url_for('auth.register') }}">S'inscrire</a>
-        </li>
-        <li class="police-titre" id="oublie">
-          <a id="oublie-2" href="">Mot de passe oublié ?</a>
-        </li>
-      </ul>
 
       {% for message in get_flashed_messages() %}
         <div>{{ message }}</div>

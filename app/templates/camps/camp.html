@@ -81,11 +81,20 @@ Connexion
                     {% endif %}
                 </div>
                 {% if g.user%}
-                    <a class="participation" href="{{ url_for('camp.participer', Id_parent = g.user['Id_parent'], Id_camp = camp['Id_camp'])}}">
+                    {% if g.role and g.role['Rôle'] == 'admin' %}
+                    <a class="participation" href="{{ url_for('admin.modifier', Id_camp = camp['Id_camp'])}}">
                         <p class="police-titre title-barre">
-                            Participer au camp
+                            Modifier
                         </p>
                     </a>
+                    {% else %}
+                        <a class="participation" href="{{ url_for('camp.participer', Id_parent = g.user['Id_parent'], Id_camp = camp['Id_camp'])}}">
+                            <p class="police-titre title-barre">
+                                Participer au camp
+                            </p>
+                        </a>
+                    {% endif %}
+
                 {% else %}
                     <a class="participation" href="{{ url_for('auth.login')}}">
                         <p class="police-titre title-barre">

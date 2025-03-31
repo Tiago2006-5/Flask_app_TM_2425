@@ -16,3 +16,23 @@ def login_required(view):
         return view(**kwargs)
     
     return wrapped_view
+
+def admin_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        print("Vérification de l'accès admin...")
+        # Vérifie si l'utilisateur est connecté
+        if g.user is None or g.role is None:
+            print("Utilisateur non connecté, redirection vers login")
+
+            return redirect(url_for('auth.login'))
+
+        # Vérifie si l'utilisateur a le rôle "admin"
+        if g.role['Rôle'] != "admin":
+                flash("Vous n'avez pas les droits d'administrateur.", "danger")
+                return redirect(url_for('home.landing_page'))  # Redirige vers une page autorisée
+            
+        print("Accès autorisé")
+        return view(**kwargs)
+
+    return wrapped_view

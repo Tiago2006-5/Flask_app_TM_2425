@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Camps
+{% endblock %}
+
+{% block content%}
+<div id="content-merci">
+      <div id="bord-merci">
+        <div id="merci">
+          <img id="logo-Starkids-2-merci" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo de Starkids">
+          {% if nombre > 1 %}
+            <p class="police-titre text-merci">Merci pour l'inscription de vos enfants !</p>
+          {% else %}
+            <p class="police-titre text-merci">Merci pour l'inscription de votre enfant !</p>
+          {% endif %}
+
+          <a href="/">
+            <div id="retour">
+              <p class="police-titre">Revenir à l'accueil</p>
+            </div>
+          </a>
+        </div>
+      </div>
+</div>
+{% endblock %}

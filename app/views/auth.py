@@ -95,7 +95,7 @@ def login():
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
         if error is None:
             session.clear()
-            if role['Rôle'] == "admin":
+            if role and role['Rôle'] == "admin":
                 session['user_id'] = user['Id_parent']
 
                 return redirect("/admin/admin")

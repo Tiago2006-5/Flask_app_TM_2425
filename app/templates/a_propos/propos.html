@@ -10,4 +10,19 @@ Connexion
 
 
 {% block content %}
+<div id="content-a-propos">
+    <img id="forme-a-propos" src="{{url_for('static', filename='imgs/forme-a-propos.svg')}}" alt="asdfsad">
+    <div id="responsable">
+        <p class="titre-a-propos police-titre">Responsable</p>
+        <p class="texte-a-propos">StarKids a été fondé par Da Silva Tiago.
+            Jeune homme domicilié dans le Gros de Vaud, il a gravi les échelons dans les catégories juniors d’inter au sein du FC Echallens Région avant de découvrir le monde du football « actif » au sein de divers club régionaux. Quand il n’est pas sur le terrain à taper dans le ballon, il partage son savoir et son expérience à des juniors de la région. Sa passion, qui est le football, lui permet également de se consacrer en parallèle à son métier d’enseignant pour lequel il termine ses diverses formations.
+            Il est l’unique fondateur de la société et le responsable de tous les stages de football.</p>
+        <img id="photo-responsable" src="{{url_for('static', filename='imgs/photo-responsable.png')}}" alt="photo du responsable de Starkids">
+    </div>
+    <div id="objectifs">
+        <p class="titre-a-propos police-titre">Objectifs</p>
+        <p class="texte-a-propos">De par sa conception, StarKids offre des entraînements et des exercices spécifiques grâce à la participation d’entraîneurs – moniteurs compétents et spécialisés. En terme de stages, l’objectif est de garantir que chaque enfant puisse prendre un maximum de plaisir tout en pratiquant son sport de prédilection sous diverses formes techniques et ludiques. Notre Staff est composé de plusieurs membres passionnés qui ne demandent qu’à partager des moments de plaisir ainsi que leur savoir.
+            Sur le plan société, StarKids veut faire ses marques dans le canton de Vaud afin de fidéliser une clientèle qui confiera leur enfants pour une semaine de vacances afin qu’ils se divertissent, pratiquent le football et partagent des moments de plaisirs avec des ami(e)s. A moyen terme, nous aimerions poser nos valises dans d’autres régions de la Suisse Romande.</p>
+    </div>
+</div>
 {% endblock %}
