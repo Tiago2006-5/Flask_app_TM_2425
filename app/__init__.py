@@ -13,7 +13,6 @@ from app.views.informations import info_bp
 from app.views.a_propos import a_propos_bp
 from app.views.admin import admin_bp
 from app.views.inscription import inscr_bp
-from app.config import Config
 from flask import Flask
 from flask_mail import Mail
 
@@ -25,7 +24,7 @@ def create_app():
 
     # Crée l'application Flask
     app = Flask(__name__)
-    app.config.from_object('app.config.Config')
+    #app.config.from_object('app.config.Config')
 
     mail.init_app(app)
 
@@ -34,7 +33,6 @@ def create_app():
 
     # Chargement des variables de configuration stockées dans le fichier config.py
     app.config.from_pyfile(os.path.join(os.path.dirname(__file__), "config.py"))
-    app.config.from_object(Config)
     # Enreigstrement des blueprints de l'application.
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
