@@ -82,3 +82,56 @@ def modifier_enfant(Id_personne):
         
     else:
         return render_template('user/modification.html', enfant = enfant, personne = personne)
+    
+@user_bp.route('/modifier-profil/<int:Id_personne>', methods=('GET', 'POST'))
+@login_required
+def modifier_profil(Id_personne):
+    
+    db = get_db()
+    parent = db.execute('SELECT * FROM Parents WHERE Id_personne = ?',(Id_personne,)).fetchone()
+    personne = db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(Id_personne,)).fetchone()
+    
+    close_db()
+    if request.method == 'POST':
+
+        name = request.form['name']
+        first_name = request.form['first_name']
+        telephone = request.form['telephone']
+
+
+
+        # On récupère la base de donnée
+        db = get_db()
+
+        # Si le nom d'utilisateur et le mot de passe ont bien une valeur
+        # on essaie d'insérer l'utilisateur dans la base de données
+        if name and first_name and telephone:
+            try:
+
+
+                curseur = db.cursor()
+                
+                curseur.execute("UPDATE  Personne SET Nom = ?, Prenom = ? WHERE Id_personne = ? ",(name, first_name, Id_personne,))
+                
+                db.commit()
+
+                curseur.execute("UPDATE Parents SET Numero_de_telephone = ? WHERE Id_personne = ?",(telephone,Id_personne,))
+              
+                # db.commit() permet de valider une modification de la base de données
+                db.commit()
+                # On ferme la connexion à la base de données pour éviter les fuites de mémoire
+                close_db()
+                
+            except db.IntegrityError:
+
+                error = f"Utilisateur {email} déjà enregistré."
+                flash(error)
+                return redirect(url_for("user.modifier_profil", Id_personne = Id_personne))
+            
+            return redirect(url_for("user.show_profile"))
+         
+        
+    else:
+        # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire d'inscription
+        return render_template('user/modification_parent.html', parent = parent, personne = personne)
+    

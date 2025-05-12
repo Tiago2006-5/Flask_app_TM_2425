@@ -31,13 +31,22 @@ def participer(Id_parent, Id_camp):
                 return redirect(url_for('camp.participer', Id_parent = Id_parent, Id_camp = Id_camp))
             else:
                 db = get_db()
+                prenoms = ""
                 for enfant in enfants_coches:
                     kid = db.execute('SELECT * FROM Inscriptions WHERE Id_enfant = ? AND Id_camp = ?',(enfant, Id_camp)).fetchone()
                     if kid is None:
                         db.execute('INSERT INTO Inscriptions (Id_enfant, Id_camp) VALUES (?, ?)',(enfant, Id_camp))
+                        enfant_info = db.execute('SELECT * FROM Personne WHERE Id_personne = ?',(enfant,)).fetchone()
+                        prenoms += enfant_info['Prenom'] + ","
+
                         db.commit()
                 close_db()
-                return redirect(url_for('home.merci',nombre = number))
+                print(prenoms)
+                if prenoms == "":
+                    flash("Vous avez déjà inscrit cet enfant")
+                    return redirect(url_for('camp.participer', Id_parent = Id_parent, Id_camp = Id_camp))
+                else:
+                    return redirect(url_for('home.merci',nombre = number, prenoms = prenoms[:-1]))
 
         else:
             db = get_db()

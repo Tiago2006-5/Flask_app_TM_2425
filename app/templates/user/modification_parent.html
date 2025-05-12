@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titre_barre %}
+S'inscrire
+{% endblock %}
+
+{% block content %}
+  <div class="content-register">
+    <div id="formulaire-border-inscription">
+      <div id="formulaire-inscription">
+      <img id="logo-inscription" src="{{url_for('static', filename='imgs/logo-Starkids-2.svg')}}" alt="logo-starkids"/>
+      <form method="post" class="register-form">
+        <label for="nom"></label>
+        <input type="text" name="name" id="name_modifier_profil" placeholder="Nom" value="{{ personne['nom']}}" required>
+        <label for="prenom"></label>
+        <input type="text" name="first_name" id="first_name" placeholder="Prénom" value="{{ personne['Prenom'] }}" required>
+        <label for="telephone"></label>
+        <input type="tel" name="telephone" id="numero_telephone" placeholder="Numéro de téléphone" value="{{parent['Numero_de_telephone']}}" required>
+        <input type="submit" id="inscrire" value="Modifier">
+      </form>
+      
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

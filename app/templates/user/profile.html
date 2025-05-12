@@ -8,8 +8,10 @@
 <div class="content-user">
   <img id="forme-user" src="{{url_for('static', filename='imgs/forme-page-user.svg')}}" alt="forme-page-user">
   <div id="menu-user">
+    <div id="modification-utilisateur">
+      <a href="{{ url_for('user.modifier_profil', Id_personne = g.user['Id_personne']) }}" class="police-titre modification-utilisateur-button">Modifier mon profil</a>
+    </div>
       <h2 id="title-user" class="police-titre">Mes enfants</h2>
-
       <div id="menu-enfants">
           {% if personnes%}
               {% for personne in personnes %}
@@ -31,7 +33,7 @@
               {% endfor %}
             </ul>
             <p>{{personnes|length}}</p>
-            {% if personnes|length < 12 %}
+            {% if personnes|length < 9 %}
               <a href="{{ url_for('inscr.enfant') }}">
                 <img id="bouton-ajouter-enfant-plus" src="{{url_for('static', filename='imgs/plus.svg')}}" alt="bouton pour ajouter un enfant">
               </a>

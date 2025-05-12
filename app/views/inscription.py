@@ -9,7 +9,6 @@ inscr_bp = Blueprint('inscr', __name__)
 @inscr_bp.route('/enfant',   methods=('GET', 'POST'))
 @login_required
 def enfant():
-    print(f"g.user: {g.user['Id_parent']}")  # Debug : Vérifie ce que contient g.user
     if request.method == 'POST':
 
         nom = request.form['nom']

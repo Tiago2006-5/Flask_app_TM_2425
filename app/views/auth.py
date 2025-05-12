@@ -78,7 +78,8 @@ def login():
         # On récupère l'utilisateur avec le username spécifié (une contrainte dans la db indique que le nom d'utilisateur est unique)
         # La virgule après username est utilisée pour créer un tuple contenant une valeur unique
         user = db.execute('SELECT * FROM Parents WHERE Email = ?', (email,)).fetchone()
-        role = db.execute('SELECT * FROM Personne WHERE Id_personne = ?', (user['Id_Parent'],)).fetchone()
+        if user:
+            role = db.execute('SELECT * FROM Personne WHERE Id_personne = ?', (user['Id_Parent'],)).fetchone()
         # On ferme la connexion à la base de données pour éviter les fuites de mémoire
         close_db()
 
